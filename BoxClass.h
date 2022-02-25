@@ -14,6 +14,7 @@ public:
   void setID(int Id) {id = Id;}
 
   vector<Cell> getBox() {return cell;}
+  Cell getCellFromBox(int n) {return cell[n];}
   int getIdBox() {return id;}
 
   void printBox() {
@@ -23,28 +24,23 @@ public:
     }
   }
   void printRow(int n){
+    cout << "|";
     for (int i = 0; i < 3; i++) {
-      cout << cell[i+3*n].getValue() << " | ";
+      cout << cell[i+3*n].getValue() << "|";
     }
-    cout << endl;
   }
   void printColumn(int n){
+
     for (int i = 0; i < 3; i++) {
       cout << cell[3*i+n].getValue() << endl;
-      cout << "--";
     }
-    cout << endl;
   }
   void printBoxByRow(){
-    cout << "||";
+
     for (int i = 0; i < 3; i++) {
       printRow(i);
     }
+    cout << endl;
   }
-  void printBoxByColumn(){
-    cout << "||";
-    for (int i = 0; i < 3; i++) {
-      printColumn(i);
-    }
-  }
+
 };

@@ -10,30 +10,16 @@ public:
 
   void setSudoku(vector<Box> b) {box = b;}
   vector<Box> getSudoku() {return box;}
+  Box getBoxFromSudoku(int n) {return box[n];}
 
   void printSudoku(){
-    for (size_t i = 0; i < 9; i++) {
-      cout << "-";
-    }
-    cout << endl;
-    for (size_t i = 0; i < 9; i++) {
-      for (size_t j = 0; j < 3; j++) {
-        cout << "||";
-        box[i].printRow(j);
-        if (i % 3 == 2) {
-          cout << "||" << endl;
-        }
-        if(i % 3 == 2 || i == 0){
-          cout << endl;
-          for (size_t k = 0; k < 9; k++) {
-            cout << "-";
-          }
-          cout << endl;
-        }
+    for(int i = 0; i < 3; i++){
+      for(int j = 0; j < 3; j++){
+        box[j+3*i].printBoxByRow();
       }
+      cout << endl;
     }
   }
-
   void printRow(int n){
     for (size_t i = 0; i < 3; i++) {
       if (n > (-1) && n<3) {
@@ -47,7 +33,6 @@ public:
       }
     }
   }
-
   void printColumn(int n){
     for (size_t i = 0; i < 3; i++) {
       if (n > (-1) && n<3) {
@@ -60,10 +45,6 @@ public:
         box[i*3+2].printColumn(n % 3);
       }
     }
-  }
-
-  void generateSudoku(){
-
   }
 
 };
