@@ -34,6 +34,7 @@ srand(time(NULL)); //for generating random number
 
   Grid grid(values);
   grid.printGrid();
+  grid.printSVG();
 
   /*for (size_t i = 0; i < 9; i++) {
     cout << "i: " << i << endl;
