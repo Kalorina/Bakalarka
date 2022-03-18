@@ -18,7 +18,7 @@ public:
   Grid(vector<vector<int>> g) {grid=g;}
 
   void setGrid(vector<vector<int>> g) {grid=g;}
-
+  vector<vector<int>> getGrid() { return grid; }
   void printGrid(){
     for (size_t i = 0; i < 9; i++) {
       for (size_t j = 0; j < 9; j++) {
@@ -31,7 +31,6 @@ public:
       cout<<endl;
     }
   }
-
   void printSVG(){
 
     fstream file;

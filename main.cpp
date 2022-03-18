@@ -1,9 +1,22 @@
 #include "Sudoku.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 int genRandNum(int max){
   return rand()%max;
+}
+
+void print_map(map<int, vector<int>> mp)
+{
+  cout << "KEY\tELEMENT\n";
+  for (auto itr = mp.begin(); itr != mp.end(); ++itr) {
+    cout << itr->first << "\t";
+    for (auto it = itr->second.begin(); it != itr->second.end(); it++){
+      cout << *it << " ";
+    }
+    cout << endl;
+  }
 }
 
 int main(int argc, char const *argv[]) {
@@ -33,14 +46,17 @@ srand(time(NULL)); //for generating random number
   values.push_back(i);
 
   Grid grid(values);
-  grid.printGrid();
-  grid.printSVG();
+  //grid.printGrid();
+  //grid.printSVG();
 
-  /*for (size_t i = 0; i < 9; i++) {
-    cout << "i: " << i << endl;
-    for (size_t j = 0; j < 9; j++) {
-      cout << "values[i][j]: " << values[i][j] << endl;
-    }
-  }*/
+  map<int, vector<int>> candidates; //iteracia cez "1-81" policok po riadkoch
 
+  vector<int> candidate;
+  candidate.push_back(1);
+  candidate.push_back(5);
+  candidate.push_back(9);
+  candidates.insert({grid.getGrid()[1][2], candidate});
+  candidates.insert({grid.getGrid()[5][2], candidate});
+
+  print_map(candidates);
 }
