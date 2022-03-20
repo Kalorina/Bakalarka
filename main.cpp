@@ -1,14 +1,8 @@
 #include "Sudoku.h"
-#include <bits/stdc++.h>
 
 using namespace std;
 
-int genRandNum(int max){
-  return rand()%max;
-}
-
-void print_map(map<int, vector<int>> mp)
-{
+void print_map(map<int, vector<int>> mp){
   cout << "KEY\tELEMENT\n";
   for (auto itr = mp.begin(); itr != mp.end(); ++itr) {
     cout << itr->first << "\t";
@@ -17,6 +11,40 @@ void print_map(map<int, vector<int>> mp)
     }
     cout << endl;
   }
+}
+void printVector(vector<int> v){
+  cout << "[";
+  for (size_t i = 0; i < v.size(); i++) {
+    cout << v[i] << ", ";
+  }
+  cout << "]" << endl;
+}
+
+map<int, vector<int>> findAllCandidates(Grid sudoku){ //3 main rules
+  cout << "Finding all candicates" << endl;
+  map<int, vector<int>> mp;
+  vector<int> candidates;
+  for (size_t i = 0; i < sudoku.getGrid().size(); i++) {
+    for (size_t j = 0; j < sudoku.getGrid()[i].size(); j++) {
+      for (size_t k = 1; k < 10; k++){
+        if(sudoku.getGrid()[i][j] == 0){
+          if (!sudoku.checkIfInside(sudoku.getRow(i), k)) {
+           //cout << "Row: " << i << " Value: " << j << endl;
+           if (!sudoku.checkIfInside(sudoku.getColumn(j), k)) {
+             //cout << "Column: " << j << " Value: " << j << endl;
+             if (!sudoku.checkIfInside(sudoku.getBox(i,j), k)) {
+                //cout << "Box: " << j << " Value: " << j << endl;
+                candidates.push_back(k);
+              }
+            }
+          }
+        }
+      }
+      mp.insert({i*9+j, candidates});
+      candidates.clear();
+    }
+  }
+  return mp;
 }
 
 int main(int argc, char const *argv[]) {
@@ -50,13 +78,6 @@ srand(time(NULL)); //for generating random number
   //grid.printSVG();
 
   map<int, vector<int>> candidates; //iteracia cez "1-81" policok po riadkoch
-
-  vector<int> candidate;
-  candidate.push_back(1);
-  candidate.push_back(5);
-  candidate.push_back(9);
-  candidates.insert({grid.getGrid()[1][2], candidate});
-  candidates.insert({grid.getGrid()[5][2], candidate});
-
+  candidates = findAllCandidates(grid);
   print_map(candidates);
 }

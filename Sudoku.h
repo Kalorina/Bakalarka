@@ -6,6 +6,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -77,6 +78,67 @@ public:
     cout << endl << "wrting svg file done." << endl;
 
     file.close();
+  }
+  vector<int> getRow(int k) {return grid[k];}
+  vector<int> getColumn(int k){
+    vector<int> column;
+    for (size_t i = 0; i < grid.size(); i++) {
+      column.push_back(grid[i][k]);
+    }
+    return column;
+  }
+  vector<int> getBox(int k, int l){
+    vector<int> box;
+    //b=0-8, prisom 0->lavyhorny a 8->pravydolny a po riadkoch
+    int b = (k/3)*3 + l/3;
+    for (int i = 0; i < 9; i++) {
+      for (int j = 0; j < 9; j++) {
+        if ((i/3)*3 + j/3 == b) {
+          box.push_back(grid[i][j]);
+          //cout << "i: " << i << " j: " << j << endl;
+        }
+        //box.push_back(grid[i+(b/3)*3][j+(b%3)*3]); //pozor toto je mozno optimalnejsie, ale treba ist cez 0-3 cyklus, nie 0-9 oba.
+        //cout << "i: " << i+(b/3)*3 << " j: " << j+(b%3)*3 << endl;
+      }
+    }
+    return box;
+  }
+  bool checkIfInside(vector<int> vector, int value){
+    for (size_t i = 0; i < vector.size(); i++) {
+      if (vector[i] == value) {
+        return true;
+      }
+    }
+    return false;
+  }
+  int getValue(int i, int j){return grid[i][j];}
+
+  map<int, vector<int>> addCandidateToMap(map<int, vector<int>> mp, int position, int value){
+    //int key;
+    vector<int> candidates;
+
+    //ak je uplne prazdna, vlozim 1. key-value element
+    if (mp.empty() == true){
+      candidates.push_back(value);
+      mp.insert({position, candidates});
+      return mp;
+    }
+
+    candidates = mp.at(position);
+
+    //ak nieje uplne prazdna, ale taky key-value element este nieje
+    if(candidates.empty()){
+      candidates.push_back(value);
+      mp.insert({position, candidates});
+      return mp;
+    }
+    //ak key-value element existuje, updatne ho
+    if (!candidates.empty()){
+      candidates.push_back(value);
+      mp[position] = candidates;
+      return mp;
+    }
+    return mp;
   }
 
 };
