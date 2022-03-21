@@ -12,7 +12,8 @@ using namespace std;
 
 class Grid{
 private:
-  vector<vector<int>> grid;
+  vector<vector<int>> grid; //[9][9] po riadkoch
+  map<int, vector<int>> candidates; //iteracia cez "1-81" policok po riadkoch
 
 public:
   Grid();
@@ -75,10 +76,11 @@ public:
 
     file << "</svg>" << endl;
 
-    cout << endl << "wrting svg file done." << endl;
+    cout << endl << "wrting sudoku .svg file done." << endl;
 
     file.close();
   }
+
   vector<int> getRow(int k) {return grid[k];}
   vector<int> getColumn(int k){
     vector<int> column;
@@ -113,32 +115,99 @@ public:
   }
   int getValue(int i, int j){return grid[i][j];}
 
-  map<int, vector<int>> addCandidateToMap(map<int, vector<int>> mp, int position, int value){
-    //int key;
-    vector<int> candidates;
+  void findAllCandidates(){
+    cout << "Finding all candicates" << endl;
+    vector<int> c; //kandidati pre konkretne policko 0-80
+    for (size_t i = 0; i < grid.size(); i++) {
+      for (size_t j = 0; j < grid[i].size(); j++) {
+        for (size_t k = 1; k < 10; k++){
+          if(grid[i][j] == 0){
+            if (!checkIfInside(getRow(i), k)) {
+             //cout << "Row: " << i << " Value: " << j << endl;
+             if (!checkIfInside(getColumn(j), k)) {
+               //cout << "Column: " << j << " Value: " << j << endl;
+               if (!checkIfInside(getBox(i,j), k)) {
+                  //cout << "Box: " << j << " Value: " << j << endl;
+                  c.push_back(k);
+                }
+              }
+            }
+          }
+        }
+        candidates.insert({i*9+j, c});
+        c.clear();
+      }
+    }
+  }
+  void print_map(){
+    cout << "KEY\tELEMENT\n";
+    for (auto itr = candidates.begin(); itr != candidates.end(); ++itr) {
+      cout << itr->first << "\t";
+      for (auto it = itr->second.begin(); it != itr->second.end(); it++){
+        cout << *it << " ";
+      }
+      cout << endl;
+    }
+  }
+  void printSVG_candidates(){
 
-    //ak je uplne prazdna, vlozim 1. key-value element
-    if (mp.empty() == true){
-      candidates.push_back(value);
-      mp.insert({position, candidates});
-      return mp;
+    fstream file;
+    file.open("sudokuPrintAllCandidates.svg", ios::out | ios::trunc );
+    if( !file ) {
+        cerr << "Error: file could not be opened" << endl;
+        exit(1);
     }
 
-    candidates = mp.at(position);
+    file << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>" << endl;
+    file << "<svg version=\"1.1\"" << endl;
+    file << "     baseProfile=\"full\"" << endl;
+    file << "     width=\"500\" height=\"500\">" << endl;
+    file << "  <polyline points=\"0,0 450,0 450,450 0,450 0,0\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+    file << "  <polyline points=\"0,50 450,50\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+    file << "  <polyline points=\"0,100 450,100\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+    file << "  <polyline points=\"0,150 450,150\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+    file << "  <polyline points=\"0,200 450,200\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+    file << "  <polyline points=\"0,250 450,250\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+    file << "  <polyline points=\"0,300 450,300\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+    file << "  <polyline points=\"0,350 450,350\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+    file << "  <polyline points=\"0,400 450,400\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+    file << "  <polyline points=\"50,0 50,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+    file << "  <polyline points=\"100,0 100,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+    file << "  <polyline points=\"150,0 150,450\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+    file << "  <polyline points=\"200,0 200,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+    file << "  <polyline points=\"250,0 250,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+    file << "  <polyline points=\"300,0 300,450\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+    file << "  <polyline points=\"350,0 350,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+    file << "  <polyline points=\"400,0 400,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
 
-    //ak nieje uplne prazdna, ale taky key-value element este nieje
-    if(candidates.empty()){
-      candidates.push_back(value);
-      mp.insert({position, candidates});
-      return mp;
+    for (size_t i = 0; i < 9; i++) {
+      for (size_t j = 0; j < 9; j++) {
+        if(grid[i][j] == 0){
+          int x = 50*j + 16;
+          int y = 50*i + 35;
+          for (auto itr = candidates.begin(); itr != candidates.end(); ++itr) {
+            //cout << itr->first << "\t";
+            for (auto it = itr->second.begin(); it != itr->second.end(); it++){
+              //cout << *it << " ";
+              file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold\" font-size=\"px\">" << *it << "</text>" << endl;
+            }
+            //cout << endl;
+          }
+        }
+        else{
+          int x = 50*j + 16;
+          int y = 50*i + 35;
+          file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold\" font-size=\"30px\">" << grid[i][j] << "</text>" << endl;
+        }
+      }
     }
-    //ak key-value element existuje, updatne ho
-    if (!candidates.empty()){
-      candidates.push_back(value);
-      mp[position] = candidates;
-      return mp;
-    }
-    return mp;
+
+
+    file << "</svg>" << endl;
+
+    cout << endl << "wrting candidates .svg file done." << endl;
+
+    file.close();
   }
 
 };
