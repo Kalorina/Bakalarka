@@ -190,9 +190,9 @@ public:
           int k;
           for (it = search->second.begin(), k = 0; it != search->second.end() && k < size; it++, k++){ //iteraia na posuvanie suradnic medzi elementami konkretnych vektorov
             k = int(k);
-            int x = 50*j + 8 + 15*k - 45*(k/3);
+            int x = 50*j + 8 + 12*k - 36*(k/3);
             int y = 50*i + 25 + 15*(k/3);
-            file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold\" font-size=\"20px\">" << *it << "</text>" << endl;
+            file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold; fill:blue\" font-size=\"15px\">" << *it << "</text>" << endl;
           }
         }
         else{
