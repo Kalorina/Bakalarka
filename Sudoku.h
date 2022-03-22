@@ -180,18 +180,19 @@ public:
     file << "  <polyline points=\"350,0 350,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
     file << "  <polyline points=\"400,0 400,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
 
-    for (size_t i = 0; i < 9; i++) {
-      for (size_t j = 0; j < 9; j++) {
+    for (size_t i = 0; i < grid.size(); i++) {
+      for (size_t j = 0; j < grid[i].size(); j++) {
         if(grid[i][j] == 0){
-          int x = 50*j + 16;
-          int y = 50*i + 35;
-          for (auto itr = candidates.begin(); itr != candidates.end(); ++itr) {
-            //cout << itr->first << "\t";
-            for (auto it = itr->second.begin(); it != itr->second.end(); it++){
-              //cout << *it << " ";
-              file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold\" font-size=\"px\">" << *it << "</text>" << endl;
-            }
-            //cout << endl;
+          int key = i*9+j;
+          auto search = candidates.find(key); //konkretny element z mapy
+          int size = search->second.size(); //velkost vektora = pocet kadnidatov pre policko
+          auto it = search->second.begin();
+          int k;
+          for (it = search->second.begin(), k = 0; it != search->second.end() && k < size; it++, k++){ //iteraia na posuvanie suradnic medzi elementami konkretnych vektorov
+            k = int(k);
+            int x = 50*j + 8 + 15*k - 45*(k/3);
+            int y = 50*i + 25 + 15*(k/3);
+            file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold\" font-size=\"20px\">" << *it << "</text>" << endl;
           }
         }
         else{
@@ -202,11 +203,9 @@ public:
       }
     }
 
-
     file << "</svg>" << endl;
 
     cout << endl << "wrting candidates .svg file done." << endl;
-
     file.close();
   }
 
