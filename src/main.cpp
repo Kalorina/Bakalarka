@@ -39,7 +39,7 @@ srand(time(NULL)); //for generating random number
 
   	  Grid grid(values);
   	  //grid.printGrid();
-  	  //grid.printSVG();
+  	  grid.printSVG();
 
   	  grid.findAllCandidates();
   	  //grid.print_map();

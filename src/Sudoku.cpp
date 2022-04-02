@@ -22,7 +22,7 @@ void Grid::printGrid(){
 
 void Grid::printSVG(){
 	fstream file;
-	file.open("sudokuPrint.svg", ios::out | ios::trunc );
+	file.open("sudokuOriginal.svg", ios::out | ios::trunc );
 	if( !file ) {
 		cerr << "Error: file could not be opened" << endl;
 		exit(1);
@@ -139,7 +139,7 @@ void Grid::print_map() {
 void Grid::printSVG_candidates() {
 
  	fstream file;
- 	file.open("sudokuPrintAllCandidates.svg", ios::out | ios::trunc );
+ 	file.open("sudokuAllCandidates.svg", ios::out | ios::trunc );
  	if( !file ) {
  		cerr << "Error: file could not be opened" << endl;
  		exit(1);
