@@ -22,7 +22,8 @@ public:
 	void setGrid(vector<vector<int>> g) {grid=g;}
 	vector<vector<int>> getGrid() { return grid; }
 	void printGrid();
-	void printSVG();
+	void printEmptyGridSVG();
+	void printGridSVG(string name);
 	vector<int> getRow(int k) {return grid[k];}
 	vector<int> getColumn(int k);
 	vector<int> getBox(int k, int l);

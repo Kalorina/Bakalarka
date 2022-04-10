@@ -37,11 +37,39 @@ srand(time(NULL)); //for generating random number
   	  values.push_back(h);
   	  values.push_back(i);
 
+  	  string name = "unsolved";
   	  Grid grid(values);
   	  //grid.printGrid();
-  	  grid.printSVG();
+  	  grid.printEmptyGridSVG();
+  	  grid.printGridSVG(name);
 
   	  grid.findAllCandidates();
   	  //grid.print_map();
   	  grid.printSVG_candidates();
+
+  	  vector<int> a1 = {2,7,4,1,5,9,3,6,8}; //zapis po riadkoch
+  	  vector<int> b1 = {1,8,5,3,2,6,7,9,4};
+  	  vector<int> c1 = {3,6,9,4,7,8,1,5,2};
+  	  vector<int> d1 = {7,5,8,6,4,1,9,2,3};
+  	  vector<int> e1 = {6,2,3,9,8,5,4,7,1};
+  	  vector<int> f1 = {9,4,1,2,3,7,5,8,6};
+  	  vector<int> g1 = {8,3,6,7,9,4,2,1,5};
+  	  vector<int> h1 = {4,1,7,5,6,2,8,3,9};
+  	  vector<int> i1 = {5,9,2,8,1,3,6,4,7};
+
+  	  vector<vector<int>> values1;
+
+  	  values1.push_back(a1);
+  	  values1.push_back(b1);
+  	  values1.push_back(c1);
+  	  values1.push_back(d1);
+  	  values1.push_back(e1);
+  	  values1.push_back(f1);
+  	  values1.push_back(g1);
+  	  values1.push_back(h1);
+  	  values1.push_back(i1);
+
+  	  string name1 = "solved";
+  	  Grid grid1(values1);
+  	  grid1.printGridSVG(name1);
 }
