@@ -7,17 +7,29 @@
 
 #include "Sudoku.h"
 
+void Grid::updateGrid(int position, int candidate){
+	for (size_t i = 0; i < 9; i++) {
+	    for (size_t j = 0; j < 9; j++) {
+			int p = i*9+j;
+			if(p == position){
+				grid[i][j] = candidate;
+				candidates.clear();
+			}
+		}
+	}
+}
+
 void Grid::printGrid(){
     for (size_t i = 0; i < 9; i++) {
-      for (size_t j = 0; j < 9; j++) {
-        if(grid[i][j] == 0)
-    cout<<".";
-        else
-    cout<<grid[i][j];
-        cout<<"|";
-      }
-      cout<<endl;
-  }
+    	for (size_t j = 0; j < 9; j++) {
+    		if(grid[i][j] == 0)
+    			cout<<".";
+    		else
+    			cout<<grid[i][j];
+    		cout<<"|";
+    	}
+    	cout<<endl;
+    }
 }
 
 void Grid::printEmptyGridSVG(){
@@ -159,6 +171,50 @@ void Grid::findAllCandidates() {
 			c.clear();
 		}
 	}
+	cout << "Found all candicates" << endl;
+}
+
+vector<int> Grid::checkForSingleCandidatesAndUpdateGrid(){
+	vector<int> k;
+	for (auto itr = candidates.begin(); itr != candidates.end(); ++itr) {
+		int position = itr->first;
+		int size = itr->second.size();
+		if (size == 1){
+	   		cout<< "Found one single candidate." << endl;
+	   		auto c = itr->second.begin();
+	   		k.push_back(position);
+	   		k.push_back(int(*c));
+	   	}
+    }
+	return k;
+}
+
+void Grid::findAllNakedPairs(){
+    cout << "Finding all naked pairs" << endl;
+
+    vector<int> c; //kandidati pre konkretne policko 0-80
+
+    for (auto itr = candidates.begin(); itr != candidates.end(); ++itr) {
+    	int size = itr->second.size();
+    	if (size == 2){
+    		cout<< "found one of sixe 2" << endl;
+    	}
+    }
+    cout << endl;
+}
+
+void Grid::findAllHiddenPairs(){
+	cout << "Finding all hidden pairs" << endl;
+
+	map<int, vector<int>> k;
+
+	for(auto itr = candidates.begin(); itr != candidates.end(); itr++){
+		cout << itr->first << "\t";
+		int size = itr->second.size();
+		if (size == 2){
+			cout<< "found one of sixe 2" << endl;
+		}
+	}
 }
 
 void Grid::print_map() {
@@ -172,10 +228,10 @@ void Grid::print_map() {
 	}
 }
 
-void Grid::printSVG_candidates() {
+void Grid::printSVG_candidates(string name) {
 
  	fstream file;
- 	file.open("AllCandidates.svg", ios::out | ios::trunc );
+ 	file.open("AllCandidates" + name + ".svg", ios::out | ios::trunc );
  	if( !file ) {
  		cerr << "Error: file could not be opened" << endl;
  		exit(1);
@@ -209,7 +265,7 @@ void Grid::printSVG_candidates() {
  				int key = i*9+j;
  				auto search = candidates.find(key); //konkretny element z mapy
  				int size = search->second.size(); //velkost vektora = pocet kadnidatov pre policko
- 				auto it = search->second.begin();
+ 				auto it= search->second.begin();
  				int k;
  				for (it = search->second.begin(), k = 0; it != search->second.end() && k < size; it++, k++){ //iteraia na posuvanie suradnic medzi elementami konkretnych vektorov
  					k = int(k);

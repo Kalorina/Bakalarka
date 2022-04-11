@@ -20,6 +20,7 @@ public:
 	Grid(vector<vector<int>> g) {grid=g;}
 
 	void setGrid(vector<vector<int>> g) {grid=g;}
+	void updateGrid(int position, int candidate);
 	vector<vector<int>> getGrid() { return grid; }
 	void printGrid();
 	void printEmptyGridSVG();
@@ -31,26 +32,11 @@ public:
  	int getValue(int i, int j){return grid[i][j];}
 
  	void findAllCandidates();
-
-/*  void findAllNakedPairs();{
-    cout << "Finding all naked pairs" << endl;
-    vector<int> c; //kandidati pre konkretne policko 0-80
-    for (auto itr = candidates.begin(); itr != candidates.end(); ++itr) {
-      cout << itr->first << "\t";
-      int size = itr->second.size();
-      if (size == 2){
-
-      }
-
-
-
-      }
-      cout << endl;
-    }
-
-  }*/
+ 	vector<int> checkForSingleCandidatesAndUpdateGrid();
+ 	void findAllNakedPairs();
+ 	void findAllHiddenPairs();
 
  	void print_map();
- 	void printSVG_candidates();
+ 	void printSVG_candidates(string name);
 
 };

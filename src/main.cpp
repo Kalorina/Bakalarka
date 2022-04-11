@@ -40,12 +40,33 @@ srand(time(NULL)); //for generating random number
   	  string name = "unsolved";
   	  Grid grid(values);
   	  //grid.printGrid();
-  	  grid.printEmptyGridSVG();
-  	  grid.printGridSVG(name);
+  	  //grid.printEmptyGridSVG();
+  	  //grid.printGridSVG(name);
 
   	  grid.findAllCandidates();
+  	  grid.printSVG_candidates(name);
   	  //grid.print_map();
-  	  grid.printSVG_candidates();
+  	  vector<int> k;
+  	  int itr = 1;
+  	  do {
+  		  k = grid.checkForSingleCandidatesAndUpdateGrid();
+  		  if(k.empty()){
+  			  break;
+  		  }
+  		  cout << "position: " << k.front() << " candidate: " << k.back() << endl;
+  		  grid.updateGrid(k.front(), k.back());
+  		  grid.findAllCandidates();
+  		  //grid.printGrid();
+  		  string n = name + to_string(itr);
+  		  grid.printGridSVG(n);
+  		  grid.printSVG_candidates(n);
+  		  itr++;
+  	  }
+  	  while (!k.empty());
+
+  	  grid.printGrid();
+
+  	  //grid.printSVG_candidates();
 
   	  vector<int> a1 = {2,7,4,1,5,9,3,6,8}; //zapis po riadkoch
   	  vector<int> b1 = {1,8,5,3,2,6,7,9,4};
@@ -71,5 +92,5 @@ srand(time(NULL)); //for generating random number
 
   	  string name1 = "solved";
   	  Grid grid1(values1);
-  	  grid1.printGridSVG(name1);
+  	  //grid1.printGridSVG(name1);
 }
