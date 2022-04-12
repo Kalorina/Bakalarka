@@ -7,25 +7,30 @@
 
 #include "Sudoku.h"
 
-void Grid::updateGrid(int position, int candidate){ //pri 3 zakladnych pravidlach
+Grid::Grid(vector<vector<int>> g) {
 	for (size_t i = 0; i < 9; i++) {
-	    for (size_t j = 0; j < 9; j++) {
-			int p = i*9+j;
-			if(p == position){
-				grid[i][j] = candidate;
-				candidates.clear();
-			}
+		for (size_t j = 0; j < 9; j++) {
+			int key = i*9+j;
+			gridMap[key] = g[i][j];
+			vector<int> v; // = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+			candidates[key] = v;
 		}
 	}
+
+}
+
+void Grid::updateGrid(int position, int candidate){ //pri 3 zakladnych pravidlach
+	gridMap[position] = candidate;
 }
 
 void Grid::printGrid(){
     for (size_t i = 0; i < 9; i++) {
     	for (size_t j = 0; j < 9; j++) {
-    		if(grid[i][j] == 0)
+    		int key = i*9+j;
+    		if(gridMap[key] == 0)
     			cout<<".";
     		else
-    			cout<<grid[i][j];
+    			cout<<gridMap[key];
     		cout<<"|";
     	}
     	cout<<endl;
@@ -99,10 +104,11 @@ void Grid::printGridSVG(string name){
 
 	for (size_t i = 0; i < 9; i++) {
 		for (size_t j = 0; j < 9; j++) {
-			if(grid[i][j] != 0){
+			int key = i*9+j;
+			if(gridMap[key] != 0){
 				int x = 50*j + 16;
 				int y = 50*i + 35;
-				file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold\" font-size=\"30px\">" << grid[i][j] << "</text>" << endl;
+				file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold\" font-size=\"30px\">" << gridMap[key] << "</text>" << endl;
 			}
 		}
 	}
@@ -114,26 +120,37 @@ void Grid::printGridSVG(string name){
 	file.close();
 }
 
-vector<int> Grid::getColumn(int k){
-	vector<int> column;
-	for (size_t i = 0; i < grid.size(); i++) {
-		column.push_back(grid[i][k]);
+vector<int> Grid::getColumn(int position) {
+	vector<int> column_values;
+	int column = position % 9;
+	for (size_t i = 0; i < 9; i++) {
+		int key = i*9+column;
+		column_values.push_back(gridMap[key]);
 	}
-	return column;
+	return column_values;
 }
 
-vector<int> Grid::getBox(int k, int l){
+vector<int> Grid::getRow(int position) {
+	vector<int> row_values;
+	int row = position / 9;
+	for (size_t j = 0; j < 9; j++) {
+		int key = row*9+j;
+		row_values.push_back(gridMap[key]);
+	}
+	return row_values;
+}
+
+vector<int> Grid::getBox(int position) {
 	vector<int> box;
     //b=0-8, pricom 0->lavyhorny a 8->pravydolny a po riadkoch
-	int b = (k/3)*3 + l/3;
+	int b = (position/3)%3 + 3*((position/9)/3);
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < 9; j++) {
-			if ((i/3)*3 + j/3 == b) {
-				box.push_back(grid[i][j]);
-				//cout << "i: " << i << " j: " << j << endl;
+			int key = i*9+j;
+			int current_b = (key/3)%3 + 3*((key/9)/3);
+			if (current_b == b) {
+				box.push_back(gridMap[key]);
 			}
-			//box.push_back(grid[i+(b/3)*3][j+(b%3)*3]); //pozor toto je mozno optimalnejsie, ale treba ist cez 0-3 cyklus, nie 0-9 oba.
-			//cout << "i: " << i+(b/3)*3 << " j: " << j+(b%3)*3 << endl;
 		}
 	}
 	return box;
@@ -141,9 +158,8 @@ vector<int> Grid::getBox(int k, int l){
 
 map<int, vector<int>> Grid::getRowCandidates(int k){
 	map<int, vector<int>> row;
-	int key;
 	for(size_t i = 0; i < 9; i++){
-		key = i + (9 * k);
+		int key = i + (9 * k);
 		auto search = candidates.find(key); //konkretny element=policko z mapy
 		row.insert({key, search->second});
 	}
@@ -163,7 +179,6 @@ map<int, vector<int>> Grid::getColumnCandidates(int k){
 
 map<int, vector<int>> Grid::getBoxCandidates(int k){
 	map<int, vector<int>> box;
-    //b=0-8, pricom 0->lavyhorny a 8->pravydolny a po riadkoch
 	int key;
 	for (size_t i = 0; i < 3; i++) {
 		for(size_t j = 0; j < 3; j++){
@@ -197,7 +212,8 @@ int Grid::checkIfInsideCandidates(map<int, vector<int>> m, vector<int> vector, i
 
 void Grid::findAllCandidates() {
 	cout << "Finding all candicates" << endl;
-	vector<int> c; //kandidati pre konkretne policko 0-80
+	//
+/*	vector<int> c; //kandidati pre konkretne policko 0-80
 	for (size_t i = 0; i < grid.size(); i++) {
 		for (size_t j = 0; j < grid[i].size(); j++) {
 			for (size_t k = 1; k < 10; k++){
@@ -219,6 +235,65 @@ void Grid::findAllCandidates() {
 		}
 	}
 	cout << "Found all candicates" << endl;
+*/
+}
+
+void Grid::rowRuleAllRows() {
+	cout << "Finding all candicates for all rows" << endl;
+
+	for (size_t i = 0; i < 9; i++) {
+		for (size_t j = 0; j < 9; j++) {
+			int key = i*9 +j;
+			vector<int> c; //kandidati pre konkretne policko 0-80
+			for (size_t k = 1; k < 10; k++){
+				if(gridMap[key] == 0){
+					if (!checkIfInside(getRow(key), k)) {
+						c.push_back(k);
+					}
+				}
+			}
+			candidates[key] = c;
+		}
+	}
+}
+
+void Grid::columnRuleAllColumns() {
+	cout << "Finding all candicates for all columns" << endl;
+	candidates.clear();
+	vector<int> c; //kandidati pre konkretne policko 0-80
+	for (size_t i = 0; i < 9; i++) {
+		for (size_t j = 0; j < 9; j++) {
+			int key = i*9 +j;
+			vector<int> c; //kandidati pre konkretne policko 0-80
+			for (size_t k = 1; k < 10; k++){
+				if(gridMap[key] == 0){
+					if (!checkIfInside(getColumn(key), k)) {
+						c.push_back(k);
+					}
+				}
+			}
+			candidates[key] = c;
+		}
+	}
+}
+
+void Grid::boxRuleAllBoxes() {
+	cout << "Finding all candicates for all boxes" << endl;
+	candidates.clear();
+	for (size_t i = 0; i < 9; i++) {
+		for (size_t j = 0; j < 9; j++) {
+			int key = i*9 +j;
+			vector<int> c; //kandidati pre konkretne policko 0-80
+			for (size_t k = 1; k < 10; k++){
+				if(gridMap[key] == 0){
+					if (!checkIfInside(getBox(key), k)) {
+						c.push_back(k);
+					}
+				}
+			}
+			candidates[key] = c;
+		}
+	}
 }
 
 vector<int> Grid::checkForSingleCandidatesAndUpdateGrid(){
@@ -390,7 +465,7 @@ void Grid::print_mapNakedPairs() {
 void Grid::printSVG_candidates(string name) {
 
  	fstream file;
- 	file.open("AllCandidates" + name + ".svg", ios::out | ios::trunc );
+ 	file.open("AllCandidates_" + name + ".svg", ios::out | ios::trunc );
  	if( !file ) {
  		cerr << "Error: file could not be opened" << endl;
  		exit(1);
@@ -418,10 +493,10 @@ void Grid::printSVG_candidates(string name) {
  	file << "  <polyline points=\"350,0 350,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
  	file << "  <polyline points=\"400,0 400,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
 
- 	for (size_t i = 0; i < grid.size(); i++) {
- 		for (size_t j = 0; j < grid[i].size(); j++) {
- 			if(grid[i][j] == 0){
- 				int key = i*9+j;
+ 	for (size_t i = 0; i < 9; i++) {
+ 		for (size_t j = 0; j < 9; j++) {
+ 			int key = i*9+j;
+ 			if(gridMap[key] == 0){
  				auto search = candidates.find(key); //konkretny element z mapy
  				int size = search->second.size(); //velkost vektora = pocet kadnidatov pre policko
  				auto it= search->second.begin();
@@ -429,14 +504,14 @@ void Grid::printSVG_candidates(string name) {
  				for (it = search->second.begin(), k = 0; it != search->second.end() && k < size; it++, k++){ //iteraia na posuvanie suradnic medzi elementami konkretnych vektorov
  					k = int(k);
  					int x = 50*j + 8 + 12*k - 36*(k/3);
- 					int y = 50*i + 25 + 15*(k/3);
+ 					int y = 50*i + 20 + 13*(k/3);
  					file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold; fill:blue\" font-size=\"15px\">" << *it << "</text>" << endl;
  				}
  			}
  			else{
  				int x = 50*j + 16;
  				int y = 50*i + 35;
- 				file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold\" font-size=\"30px\">" << grid[i][j] << "</text>" << endl;
+ 				file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold\" font-size=\"30px\">" << gridMap[key] << "</text>" << endl;
  			}
  		}
  	}
