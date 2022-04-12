@@ -41,6 +41,7 @@ public:
  	void findAllCandidates();
  	vector<int> checkForSingleCandidatesAndUpdateGrid();
  	void findAllNakedPairs();
+ 	void updateCandidatesByPair();
  	void findAllHiddenPairs();
 
  	void print_mapCandidates();

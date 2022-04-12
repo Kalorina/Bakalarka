@@ -7,7 +7,7 @@
 
 #include "Sudoku.h"
 
-void Grid::updateGrid(int position, int candidate){
+void Grid::updateGrid(int position, int candidate){ //pri 3 zakladnych pravidlach
 	for (size_t i = 0; i < 9; i++) {
 	    for (size_t j = 0; j < 9; j++) {
 			int p = i*9+j;
@@ -244,25 +244,27 @@ void Grid::findAllNakedPairs(){
     	if (size == 2){
     		int key = itr->first;
     		int kRow = key/9;
-    		int kColumn = key % 9;
+    		int kColumn = key%9;
     		int kBox = (key/3)%3 + 3*((key/9)/3);
     		//cout << "key: " << key << " kRow: " << kRow << " kColumn: " << kColumn << " kBox: " << kBox << endl;
     		if (checkIfInsideCandidates(getRowCandidates(kRow), itr->second, itr->first) != -1) {
-    			cout<< "found match in row" << endl;
+    			cout<< "found match in row " + to_string(kRow) << endl;
     			int matchKey = checkIfInsideCandidates(getRowCandidates(kRow), itr->second, itr->first);
+    			itr->second.push_back(1); //1=row
     			nakedPairs.insert({key,itr->second});
     			nakedPairs.insert({matchKey, itr->second});
     		}
     		if (checkIfInsideCandidates(getColumnCandidates(kColumn), itr->second, itr->first) != -1) {
-    			cout<< "found match in column" << endl;
+    			cout<< "found match in column " + to_string(kColumn) << endl;
     			int matchKey = checkIfInsideCandidates(getColumnCandidates(kColumn), itr->second, itr->first);
+    			itr->second.push_back(2); //2=column
     			nakedPairs.insert({key,itr->second});
     			nakedPairs.insert({matchKey, itr->second});
     		}
     		if (checkIfInsideCandidates(getBoxCandidates(kBox), itr->second, itr->first) != -1) {
-    			cout<< "found match in box" << endl;
+    			cout<< "found match in box " + to_string(kBox) << endl;
     			int matchKey = checkIfInsideCandidates(getBoxCandidates(kBox), itr->second, itr->first);
-    			cout << matchKey << endl;
+    			itr->second.push_back(3); //3=box
     			nakedPairs.insert({key,itr->second});
     			nakedPairs.insert({matchKey, itr->second});
     		}
@@ -271,6 +273,82 @@ void Grid::findAllNakedPairs(){
     if(nakedPairs.empty()){
     	cout << "Found none naked pair" << endl;
     }
+}
+
+void Grid::updateCandidatesByPair(){
+	vector<int> pair;
+
+	for (auto itr = nakedPairs.begin(); itr != nakedPairs.end(); ++itr) {
+		int one = itr->second[0];
+		int two = itr->second[1];
+		int shape = itr->second[2];
+		pair.push_back(one);
+		pair.push_back(two);
+		int key = itr->first;
+		if(shape == 1){
+				map<int, vector<int>> m;
+				int k = key/9;
+				m = getRowCandidates(k);
+				for(auto it = m.begin(); it != m.end(); it++){
+					if(!it->second.empty() && key != it->first){
+						for(size_t i = 0; i < it->second.size(); i++){
+							if(one == it->second.at(i) || two == it->second.at(i)){
+								it->second.erase(it->second.begin()+i); //zostanu ostatni kandidati okrem naked pair
+								auto search = candidates.find(it->first);
+								candidates.erase(it->first);
+								candidates.insert({search->first,it->second});
+							}
+						}
+					}
+					break;
+				}
+				candidates.erase(itr->first);
+				candidates.insert({itr->first,pair});
+				pair.clear();
+			}
+		if(shape == 2){
+				map<int, vector<int>> m;
+				int k = key%9;
+				m = getColumnCandidates(k);
+				for(auto it = m.begin(); it != m.end(); it++){
+					if(!it->second.empty() && key != it->first){
+						for(size_t i = 0; i < it->second.size(); i++){
+							if(one == it->second.at(i) || two == it->second.at(i)){
+								it->second.erase(it->second.begin()+i); //zostanu ostatni kandidati okrem naked pair
+								auto search = candidates.find(it->first);
+								candidates.erase(it->first);
+								candidates.insert({search->first,it->second});
+							}
+						}
+					}
+					break;
+				}
+				candidates.erase(itr->first);
+				candidates.insert({itr->first,pair});
+				pair.clear();
+			}
+		if(shape == 3){
+			map<int, vector<int>> m;
+			int k = (key/3)%3 + 3*((key/9)/3);
+			m = getBoxCandidates(k);
+			for(auto it = m.begin(); it != m.end(); it++){
+				if(!it->second.empty() && key != it->first){
+					for(size_t i = 0; i < it->second.size(); i++){
+						if(one == it->second.at(i) || two == it->second.at(i)){
+							it->second.erase(it->second.begin()+i); //zostanu ostatni kandidati okrem naked pair
+							auto search = candidates.find(it->first);
+							candidates.erase(it->first);
+							candidates.insert({search->first,it->second});
+						}
+					}
+				}
+				break;
+			}
+			candidates.erase(itr->first);
+			candidates.insert({itr->first,pair});
+			pair.clear();
+		}
+	}
 }
 
 void Grid::findAllHiddenPairs(){

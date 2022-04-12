@@ -13,8 +13,9 @@ void printVector(vector<int> v){
 
 int main(int argc, char const *argv[]) {
 
-srand(time(NULL)); //for generating random number
+	  srand(time(NULL)); //for generating random number
 
+	  // ***************Unsolved*****************************
   	  vector<int> a = {2,0,0,1,0,0,0,6,0}; //zapis po riadkoch
   	  vector<int> b = {0,8,5,0,2,0,0,9,0};
   	  vector<int> c = {0,0,0,0,7,0,1,0,2};
@@ -40,40 +41,54 @@ srand(time(NULL)); //for generating random number
   	  string name = "unsolved";
   	  Grid grid(values);
   	  //grid.printGrid();
-  	  //grid.printEmptyGridSVG();
-  	  //grid.printGridSVG(name);
+  	  grid.printEmptyGridSVG();
+  	  grid.printGridSVG(name);
 
   	  grid.findAllCandidates();
-  	  //grid.printSVG_candidates(name);
+  	  grid.printSVG_candidates(name);
   	  //grid.print_map();
 
-  	  //zakladne tri pravidla
+  	  //***********************Algo***************************
   	  vector<int> k;
   	  int itr = 1;
   	  do {
   		  k = grid.checkForSingleCandidatesAndUpdateGrid();
   		  if(k.empty()){
-  			  break;
+  			  //naked pair algo
+  		  	  grid.findAllNakedPairs();
+  		  	  grid.updateCandidatesByPair();
+  		  	  string n = name + to_string(itr) + "nakedPair";
+  		  	  grid.printGridSVG(n);
+  		  	  grid.printSVG_candidates(n);
+  		  	  k = grid.checkForSingleCandidatesAndUpdateGrid();
+  		  	  itr++;
+  		  	  continue;
   		  }
+  		  //single candidates algo
   		  cout << "position: " << k.front() << " candidate: " << k.back() << endl;
   		  grid.updateGrid(k.front(), k.back());
   		  grid.findAllCandidates();
   		  //grid.printGrid();
-  		  string n = name + to_string(itr);
-  		  //grid.printGridSVG(n);
-  		  //grid.printSVG_candidates(n);
+  		  string n = name + to_string(itr) + "singleCandidate";
+  		  grid.printGridSVG(n);
+  		  grid.printSVG_candidates(n);
   		  itr++;
   	  }
   	  while (!k.empty());
 
   	  //grid.printGrid();
 
-  	  //naked pairs
-  	  grid.findAllNakedPairs();
-  	  grid.print_mapNakedPairs();
+  	  //naked pairs practice
 
+  	  //grid.print_mapCandidates();
+  	  //grid.findAllNakedPairs();
+  	 // grid.updateCandidatesByPair();
+  	  //grid.print_mapNakedPairs();
+  	  //grid.print_mapCandidates();
+  	  //string n = name + "skuska";
+  	  //grid.printSVG_candidates(n);
 
-  	  //Solved Example
+  	  //*****************Solved Example**********************
 
   	  vector<int> a1 = {2,7,4,1,5,9,3,6,8}; //zapis po riadkoch
   	  vector<int> b1 = {1,8,5,3,2,6,7,9,4};
@@ -99,5 +114,5 @@ srand(time(NULL)); //for generating random number
 
   	  string name1 = "solved";
   	  Grid grid1(values1);
-  	  //grid1.printGridSVG(name1);
+  	  grid1.printGridSVG(name1);
 }
