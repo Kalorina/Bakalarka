@@ -14,6 +14,7 @@ class Grid{
 private:
 	vector<vector<int>> grid; //[9][9] po riadkoch
 	map<int, vector<int>> candidates; //iteracia cez "1-81" policok po riadkoch, vsetci kandidati
+	map<int, vector<int>> nakedPairs; //dvojice ktore sa najdu v grid, opat pozicia 0-80 po riadkoch
 
 public:
 	Grid();
@@ -28,15 +29,22 @@ public:
 	vector<int> getRow(int k) {return grid[k];}
 	vector<int> getColumn(int k);
 	vector<int> getBox(int k, int l);
- 	bool checkIfInside(vector<int> vector, int value);
  	int getValue(int i, int j){return grid[i][j];}
+
+ 	map<int, vector<int>> getRowCandidates(int k);
+ 	map<int, vector<int>> getColumnCandidates(int k);
+ 	map<int, vector<int>> getBoxCandidates(int k);
+
+ 	bool checkIfInside(vector<int> vector, int value);
+ 	int checkIfInsideCandidates(map<int, vector<int>> m, vector<int> vector, int key);
 
  	void findAllCandidates();
  	vector<int> checkForSingleCandidatesAndUpdateGrid();
  	void findAllNakedPairs();
  	void findAllHiddenPairs();
 
- 	void print_map();
+ 	void print_mapCandidates();
+ 	void print_mapNakedPairs();
  	void printSVG_candidates(string name);
 
 };

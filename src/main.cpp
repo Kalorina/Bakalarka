@@ -44,8 +44,10 @@ srand(time(NULL)); //for generating random number
   	  //grid.printGridSVG(name);
 
   	  grid.findAllCandidates();
-  	  grid.printSVG_candidates(name);
+  	  //grid.printSVG_candidates(name);
   	  //grid.print_map();
+
+  	  //zakladne tri pravidla
   	  vector<int> k;
   	  int itr = 1;
   	  do {
@@ -58,15 +60,20 @@ srand(time(NULL)); //for generating random number
   		  grid.findAllCandidates();
   		  //grid.printGrid();
   		  string n = name + to_string(itr);
-  		  grid.printGridSVG(n);
-  		  grid.printSVG_candidates(n);
+  		  //grid.printGridSVG(n);
+  		  //grid.printSVG_candidates(n);
   		  itr++;
   	  }
   	  while (!k.empty());
 
-  	  grid.printGrid();
+  	  //grid.printGrid();
 
-  	  //grid.printSVG_candidates();
+  	  //naked pairs
+  	  grid.findAllNakedPairs();
+  	  grid.print_mapNakedPairs();
+
+
+  	  //Solved Example
 
   	  vector<int> a1 = {2,7,4,1,5,9,3,6,8}; //zapis po riadkoch
   	  vector<int> b1 = {1,8,5,3,2,6,7,9,4};

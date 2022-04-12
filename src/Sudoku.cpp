@@ -124,7 +124,7 @@ vector<int> Grid::getColumn(int k){
 
 vector<int> Grid::getBox(int k, int l){
 	vector<int> box;
-    //b=0-8, prisom 0->lavyhorny a 8->pravydolny a po riadkoch
+    //b=0-8, pricom 0->lavyhorny a 8->pravydolny a po riadkoch
 	int b = (k/3)*3 + l/3;
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < 9; j++) {
@@ -139,6 +139,42 @@ vector<int> Grid::getBox(int k, int l){
 	return box;
 }
 
+map<int, vector<int>> Grid::getRowCandidates(int k){
+	map<int, vector<int>> row;
+	int key;
+	for(size_t i = 0; i < 9; i++){
+		key = i + (9 * k);
+		auto search = candidates.find(key); //konkretny element=policko z mapy
+		row.insert({key, search->second});
+	}
+	return row;
+}
+
+map<int, vector<int>> Grid::getColumnCandidates(int k){
+	map<int, vector<int>> column;
+	int key;
+	for(size_t i = 0; i < 9; i++){
+		key = (i * 9) + k;
+		auto search = candidates.find(key); //konkretny element=policko z mapy
+		column.insert({key, search->second});
+	}
+	return column;
+}
+
+map<int, vector<int>> Grid::getBoxCandidates(int k){
+	map<int, vector<int>> box;
+    //b=0-8, pricom 0->lavyhorny a 8->pravydolny a po riadkoch
+	int key;
+	for (size_t i = 0; i < 3; i++) {
+		for(size_t j = 0; j < 3; j++){
+			key = i + (3 * k) + (j * 9) + ((k / 3) * 18);
+			auto search = candidates.find(key);
+			box.insert({key, search->second});
+		}
+	}
+	return box;
+}
+
 bool Grid::checkIfInside(vector<int> vector, int value) {
     for (size_t i = 0; i < vector.size(); i++) {
     	if (vector[i] == value) {
@@ -146,6 +182,17 @@ bool Grid::checkIfInside(vector<int> vector, int value) {
     	}
     }
     return false;
+}
+
+int Grid::checkIfInsideCandidates(map<int, vector<int>> m, vector<int> vector, int key) {
+	int k = -1;
+	for (auto itr = m.begin(); itr != m.end(); ++itr) {
+		if (itr->first != key && vector == itr->second){
+			k = itr->first;
+			return k;
+		}
+	}
+	return k;
 }
 
 void Grid::findAllCandidates() {
@@ -192,15 +239,38 @@ vector<int> Grid::checkForSingleCandidatesAndUpdateGrid(){
 void Grid::findAllNakedPairs(){
     cout << "Finding all naked pairs" << endl;
 
-    vector<int> c; //kandidati pre konkretne policko 0-80
-
     for (auto itr = candidates.begin(); itr != candidates.end(); ++itr) {
     	int size = itr->second.size();
     	if (size == 2){
-    		cout<< "found one of sixe 2" << endl;
+    		int key = itr->first;
+    		int kRow = key/9;
+    		int kColumn = key % 9;
+    		int kBox = (key/3)%3 + 3*((key/9)/3);
+    		//cout << "key: " << key << " kRow: " << kRow << " kColumn: " << kColumn << " kBox: " << kBox << endl;
+    		if (checkIfInsideCandidates(getRowCandidates(kRow), itr->second, itr->first) != -1) {
+    			cout<< "found match in row" << endl;
+    			int matchKey = checkIfInsideCandidates(getRowCandidates(kRow), itr->second, itr->first);
+    			nakedPairs.insert({key,itr->second});
+    			nakedPairs.insert({matchKey, itr->second});
+    		}
+    		if (checkIfInsideCandidates(getColumnCandidates(kColumn), itr->second, itr->first) != -1) {
+    			cout<< "found match in column" << endl;
+    			int matchKey = checkIfInsideCandidates(getColumnCandidates(kColumn), itr->second, itr->first);
+    			nakedPairs.insert({key,itr->second});
+    			nakedPairs.insert({matchKey, itr->second});
+    		}
+    		if (checkIfInsideCandidates(getBoxCandidates(kBox), itr->second, itr->first) != -1) {
+    			cout<< "found match in box" << endl;
+    			int matchKey = checkIfInsideCandidates(getBoxCandidates(kBox), itr->second, itr->first);
+    			cout << matchKey << endl;
+    			nakedPairs.insert({key,itr->second});
+    			nakedPairs.insert({matchKey, itr->second});
+    		}
     	}
     }
-    cout << endl;
+    if(nakedPairs.empty()){
+    	cout << "Found none naked pair" << endl;
+    }
 }
 
 void Grid::findAllHiddenPairs(){
@@ -217,9 +287,20 @@ void Grid::findAllHiddenPairs(){
 	}
 }
 
-void Grid::print_map() {
+void Grid::print_mapCandidates() {
 	cout << "KEY\tELEMENT\n";
 	for (auto itr = candidates.begin(); itr != candidates.end(); ++itr) {
+		cout << itr->first << "\t";
+		for (auto it = itr->second.begin(); it != itr->second.end(); it++){
+			cout << *it << " ";
+		}
+		cout << endl;
+	}
+}
+
+void Grid::print_mapNakedPairs() {
+	cout << "KEY\tELEMENT\n";
+	for (auto itr = nakedPairs.begin(); itr != nakedPairs.end(); ++itr) {
 		cout << itr->first << "\t";
 		for (auto it = itr->second.begin(); it != itr->second.end(); it++){
 			cout << *it << " ";
