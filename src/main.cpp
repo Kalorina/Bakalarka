@@ -45,21 +45,24 @@ int main(int argc, char const *argv[]) {
 
 	  // ***************Unsolved Example*****************************
 
-	  string name = "unsolved";
-  	  vector<vector<int>> values = loadSudokuFromFile("example.cvs");
+	  string name = "exampla2";
+  	  vector<vector<int>> values = loadSudokuFromFile("example3.csv");
   	  Grid grid(values);
   	  //grid.printGrid();
-  	  grid.printEmptyGridSVG();
-  	  grid.printGridSVG(name);
+  	  //grid.printEmptyGridSVG();
+  	  //grid.printGridSVG(name);
 
- 	  grid.rowRuleAllRows();
-	  grid.printSVG_candidates(name+"_rowRule");
-	  grid.columnRuleAllColumns();
- 	  grid.printSVG_candidates(name+"_columnRUle");
-  	  grid.boxRuleAllBoxes();
-  	  grid.printSVG_candidates(name+"_boxRule");
+ 	  //grid.rowRuleAllRows();
+	  //grid.printSVG_candidates(name+"_rowRule");
+	  //grid.columnRuleAllColumns();
+ 	  //grid.printSVG_candidates(name+"_columnRUle");
+  	  //grid.boxRuleAllBoxes();
+  	  //grid.printSVG_candidates(name+"_boxRule");
   	  //grid.print_map();
 
+
+  	  grid.findAllCandidates();
+  	  grid.printSVG_candidates("HiddenPair");
 
 
   	  //***********************Algo***************************

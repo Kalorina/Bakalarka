@@ -213,29 +213,28 @@ int Grid::checkIfInsideCandidates(map<int, vector<int>> m, vector<int> vector, i
 void Grid::findAllCandidates() {
 	cout << "Finding all candicates" << endl;
 	//
-/*	vector<int> c; //kandidati pre konkretne policko 0-80
-	for (size_t i = 0; i < grid.size(); i++) {
-		for (size_t j = 0; j < grid[i].size(); j++) {
+	candidates.clear();
+	vector<int> c; //kandidati pre konkretne policko 0-80
+	for (size_t i = 0; i < 9; i++) {
+		for (size_t j = 0; j < 9; j++) {
+			int key = i*9 +j;
 			for (size_t k = 1; k < 10; k++){
-				if(grid[i][j] == 0){
-					if (!checkIfInside(getRow(i), k)) {
-						//cout << "Row: " << i << " Value: " << j << endl;
-						if (!checkIfInside(getColumn(j), k)) {
-							//cout << "Column: " << j << " Value: " << j << endl;
-							if (!checkIfInside(getBox(i,j), k)) {
-								//cout << "Box: " << j << " Value: " << j << endl;
+				if(gridMap[key]== 0){
+					if (!checkIfInside(getRow(key), k)) {
+						if (!checkIfInside(getColumn(key), k)) {
+							if (!checkIfInside(getBox(key), k)) {
 								c.push_back(k);
 							}
 						}
 					}
 				}
 			}
-			candidates.insert({i*9+j, c});
+			candidates[key] = c;
 			c.clear();
 		}
 	}
 	cout << "Found all candicates" << endl;
-*/
+
 }
 
 void Grid::rowRuleAllRows() {
@@ -505,7 +504,7 @@ void Grid::printSVG_candidates(string name) {
  					k = int(k);
  					int x = 50*j + 8 + 12*k - 36*(k/3);
  					int y = 50*i + 20 + 13*(k/3);
- 					file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold; fill:blue\" font-size=\"15px\">" << *it << "</text>" << endl;
+ 					file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold; fill:black\" font-size=\"15px\">" << *it << "</text>" << endl;
  				}
  			}
  			else{
