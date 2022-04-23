@@ -1,8 +1,8 @@
 /*
  * Sudoku.cpp
  *
- *  Created on: Apr 2, 2022
- *      Author: karoli
+ *  Created on: Jan 10, 2022
+ *      Author: Karolina Vallova
  */
 
 #include "Sudoku.h"
@@ -14,12 +14,59 @@ Grid::Grid(vector<vector<int>> g) {
 			gridMap[key] = g[i][j];
 			vector<int> v; // = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 			candidates[key] = v;
+			nakedPairs[key] = v;
 		}
 	}
-
 }
 
-void Grid::updateGrid(int position, int candidate){ //pri 3 zakladnych pravidlach
+void Grid::setUpGrid(vector<vector<int>> s) {
+	for (size_t i = 0; i < 9; i++) {
+		for (size_t j = 0; j < 9; j++) {
+			int key = i*9+j;
+			gridMap[key] = s[i][j];
+			vector<int> v;
+			candidates[key] = v;
+			nakedPairs[key] = v;
+		}
+	}
+}
+
+void Grid::setUpFromFile(string filename) {
+
+	ifstream myFile(filename);
+
+	if(!myFile.is_open()) throw runtime_error("Could not open file");
+
+	vector<vector<int>> grid;
+
+	string line, colname;
+	int val;
+	vector<int>	row;
+
+	while(getline(myFile, line)) {
+		stringstream ss(line);
+		row.clear();
+		while(ss >> val){
+			row.push_back(val);
+			if(ss.peek() == ',') ss.ignore();
+		}
+		grid.push_back(row);
+	}
+
+	myFile.close();
+
+	for (size_t i = 0; i < 9; i++) {
+		for (size_t j = 0; j < 9; j++) {
+			int key = i*9+j;
+			gridMap[key] = grid[i][j];
+			vector<int> v; // = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+			candidates[key] = v;
+			nakedPairs[key] = v;
+		}
+	}
+}
+
+void Grid::updateGrid(int position, int candidate){ //pre 3 zakladne pravidla
 	gridMap[position] = candidate;
 }
 
@@ -75,7 +122,7 @@ void Grid::printEmptyGridSVG(){
 
 void Grid::printGridSVG(string name){
 	fstream file;
-	file.open("original_" + name + ".svg", ios::out | ios::trunc );
+	file.open(name + ".svg", ios::out | ios::trunc );
 	if( !file ) {
 		cerr << "Error: file could not be opened" << endl;
 		exit(1);
@@ -439,6 +486,13 @@ void Grid::findAllHiddenPairs(){
 	}
 }
 
+void Grid::print_map() {
+	cout << "KEY\tELEMENT\n";
+	for (auto itr = gridMap.begin(); itr != gridMap.end(); ++itr) {
+		cout << itr->first << "\t" << itr->second << endl;
+	}
+}
+
 void Grid::print_mapCandidates() {
 	cout << "KEY\tELEMENT\n";
 	for (auto itr = candidates.begin(); itr != candidates.end(); ++itr) {
@@ -464,7 +518,7 @@ void Grid::print_mapNakedPairs() {
 void Grid::printSVG_candidates(string name) {
 
  	fstream file;
- 	file.open("AllCandidates_" + name + ".svg", ios::out | ios::trunc );
+ 	file.open(name + ".svg", ios::out | ios::trunc );
  	if( !file ) {
  		cerr << "Error: file could not be opened" << endl;
  		exit(1);

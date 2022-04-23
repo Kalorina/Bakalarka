@@ -1,7 +1,11 @@
-#include "Sudoku.h"
-#include <utility> // std::pair
-#include <stdexcept> // std::runtime_error
-#include <sstream> // std::stringstream
+/*
+ * Sudoku.cpp
+ *
+ *  Created on: Jan 10, 2022
+ *      Author: Karolina Vallova
+ */
+
+#include "Interface.h"
 
 using namespace std;
 
@@ -43,13 +47,21 @@ vector<vector<int>> loadSudokuFromFile(string filename) {
 
 int main(int argc, char const *argv[]) {
 
-	  // ***************Unsolved Example*****************************
+//*********************Game******************************************
 
-	  string name = "exampla2";
-  	  vector<vector<int>> values = loadSudokuFromFile("example3.csv");
-  	  Grid grid(values);
+		Game Sudoku = Game();
+		Sudoku.runGame();
+
+/*
+
+
+// ***************Hrame sa a skusame funkcie*****************************
+
+	  //string name = "example1";
+  	  //vector<vector<int>> values = loadSudokuFromFile("example.csv");
+  	  //Grid grid(values);
   	  //grid.printGrid();
-  	  //grid.printEmptyGridSVG();
+  	  //grid.print_map();
   	  //grid.printGridSVG(name);
 
  	  //grid.rowRuleAllRows();
@@ -61,12 +73,12 @@ int main(int argc, char const *argv[]) {
   	  //grid.print_map();
 
 
-  	  grid.findAllCandidates();
-  	  grid.printSVG_candidates("HiddenPair");
+  	  //grid.findAllCandidates();
+  	  //grid.printSVG_candidates("JedenKandidat");
 
 
   	  //***********************Algo***************************
-/* 	  vector<int> k;
+	  vector<int> k;
   	  int itr = 1;
   	  do {
   		  k = grid.checkForSingleCandidatesAndUpdateGrid();
@@ -104,13 +116,14 @@ int main(int argc, char const *argv[]) {
   	  //grid.print_mapCandidates();
   	  //string n = name + "skuska";
   	  //grid.printSVG_candidates(n);
-*/
+
   	  //*****************Solved Example**********************
 
   	  string name1 = "solved";
   	  vector<vector<int>> values1 = loadSudokuFromFile("solved_example.csv");
   	  Grid grid1(values1);
   	  grid1.printGridSVG(name1);
+*/
 
-  	  cout << "done" << endl;
+		cout << "done" << endl;
 }
