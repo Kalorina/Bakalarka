@@ -66,12 +66,12 @@ void Game::runGame() {
 		cout << "Enter number of your choice: ";
 		cin >> hint;
 		if (hint <= 0 || hint > 6){
-			cout << "wrong hint number, please enter again: " << endl;
+			cout << "wrong number, please enter again: " << endl;
 			cin >> hint;
 		}
 
 		if(hint == 1) {
-			cout << "Enter number to add to grid (1-9): ";
+			cout << "Enter number to add to your grid (1-9): ";
 			int number;
 			cin >> number;
 			if (number < 1 || number > 9){
@@ -79,7 +79,7 @@ void Game::runGame() {
 				cin >> number;
 			}
 
-			cout << "Enter number for row (1-9): ";
+			cout << "Enter row number(1-9): ";
 			int row;
 			cin >> row;
 			if (row < 1 || row > 9){
@@ -87,7 +87,7 @@ void Game::runGame() {
 				cin >> row;
 			}
 
-			cout << "Enter number for column (1-9): ";
+			cout << "Enter column number(1-9): ";
 			int column;
 			cin >> column;
 			if (column < 1 || column > 9){
