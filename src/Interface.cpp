@@ -45,78 +45,96 @@ void Game::runGame() {
 	cin >> filename;
 
 	sudoku.setUpFromFile(filename);
+
+	string name;
+	cout << "Name of your game: ";
+	cin >> name;
+
 	cout << "Yours grid:" << endl;
 	sudoku.printGrid();
-	string name;
-	cout << "Name your game: ";
-	cin >> name;
 	sudoku.printGridSVG(name);
 
-	cout << "Yours options:" << endl;
-	cout << "1. Add a number to grid." << endl;
-	cout << "2. Show candidates for all rows." << endl;
-	cout << "3. Show candidates for all column." << endl;
-	cout << "4. Show candidates for all 3x3 box." << endl;
-	cout << "5. Show all candidates." << endl;
+	do{
+		cout << "Yours options:" << endl;
+		cout << "1. Add a number to grid." << endl;
+		cout << "2. Show candidates for all rows." << endl;
+		cout << "3. Show candidates for all column." << endl;
+		cout << "4. Show candidates for all 3x3 box." << endl;
+		cout << "5. Show all candidates." << endl;
+		cout << "6. End game." << endl;
 
-	cout << "Enter number of your choice: ";
-	cin >> hint;
-	if (hint <= 0 || hint > 5){
-		cout << "wrong hint number, please enter again: " << endl;
+		cout << "Enter number of your choice: ";
 		cin >> hint;
-	}
+		if (hint <= 0 || hint > 6){
+			cout << "wrong hint number, please enter again: " << endl;
+			cin >> hint;
+		}
 
-	if(hint == 1) {
-		cout << "Enter number to add to grid (1-9): ";
-		int number;
-		cin >> number;
-		if (number < 1 || number > 9){
-			cout << "wrong number, please enter again: " << endl;
+		if(hint == 1) {
+			cout << "Enter number to add to grid (1-9): ";
+			int number;
 			cin >> number;
-		}
+			if (number < 1 || number > 9){
+				cout << "wrong number, please enter again: " << endl;
+				cin >> number;
+			}
 
-		cout << "Enter number for row (1-9): ";
-		int row;
-		cin >> row;
-		if (row < 1 || row > 9){
-			cout << "wrong number for row, please enter again: " << endl;
+			cout << "Enter number for row (1-9): ";
+			int row;
 			cin >> row;
-		}
+			if (row < 1 || row > 9){
+				cout << "wrong number for row, please enter again: " << endl;
+				cin >> row;
+			}
 
-		cout << "Enter number for column (1-9): ";
-		int column;
-		cin >> column;
-		if (column < 1 || column > 9){
-			cout << "wrong number for column, please enter again: " << endl;
+			cout << "Enter number for column (1-9): ";
+			int column;
 			cin >> column;
+			if (column < 1 || column > 9){
+				cout << "wrong number for column, please enter again: " << endl;
+				cin >> column;
+			}
+			int key = (column-1) + 9*(row-1);
+			sudoku.updateGrid(key, number);
+			cout << endl;
+			sudoku.printGrid();
+			sudoku.printGridSVG(name);
+			cout << "Your Game " + name + " was updated with new number in the grid" << endl;
 		}
-		int key = (column-1) + 9*(row-1);
-		sudoku.updateGrid(key, number);
-		cout << endl;
-		sudoku.printGrid();
-		sudoku.printGridSVG(name + "Added number");
-		cout << "Your Game " + name + " was updated with new number in the grid" << endl;
+		if(hint == 2) {
+			sudoku.rowRuleAllRows();
+			sudoku.printSVG_candidates(name);
+			cout << "Your Game " + name + " was updated with candidates for all rows" << endl;
+		}
+		if(hint == 3) {
+			sudoku.columnRuleAllColumns();
+			sudoku.printSVG_candidates(name);
+			cout << "Your Game " + name + " was updated with candidates for all columns" << endl;
+		}
+		if(hint == 4) {
+			sudoku.boxRuleAllBoxes();
+			sudoku.printSVG_candidates(name);
+			cout << "Your Game " + name + " was updated with candidates for all 3x3 boxes" << endl;
+		}
+		if(hint == 5) {
+			sudoku.findAllCandidates();
+			sudoku.printSVG_candidates(name);
+			cout << "Your Game " + name + " was updated with all candidates" << endl;
+		}
+		if(hint == 6) {
+			sudoku.printGridSVG(name);
+			cout << "Your Game " + name + " ended" << endl;
+			break;
+		}
+		if(sudoku.checkIfSolved()){
+			cout << "Your Game " + name + " is solved" << endl;
+			sudoku.printGrid();
+			sudoku.printGridSVG(name);
+			break;
+		}
 	}
-	if(hint == 2) {
-		sudoku.rowRuleAllRows();
-		sudoku.printSVG_candidates(name + "CandidatesForAllRows");
-		cout << "Your Game " + name + " was updated with candidates for all rows" << endl;
-	}
-	if(hint == 3) {
-		sudoku.columnRuleAllColumns();
-		sudoku.printSVG_candidates(name + "CandidatesForAllColumns");
-		cout << "Your Game " + name + " was updated with candidates for all columns" << endl;
-	}
-	if(hint == 4) {
-		sudoku.boxRuleAllBoxes();
-		sudoku.printSVG_candidates(name + "CandidatesForAllBoxes");
-		cout << "Your Game " + name + " was updated with candidates for all 3x3 boxes" << endl;
-	}
-	if(hint == 5) {
-		sudoku.findAllCandidates();
-		sudoku.printSVG_candidates(name + "Allcandidates");
-		cout << "Your Game " + name + " was updated with all candidates" << endl;
-	}
+	while(!sudoku.checkIfSolved());
+
 
 	cout << "Game ended" << endl;
 }

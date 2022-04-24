@@ -45,6 +45,7 @@ public:
 
  	bool checkIfInside(vector<int> vector, int value);
  	int checkIfInsideCandidates(map<int, vector<int>> m, vector<int> vector, int key);
+ 	bool checkIfSolved();
 
  	void findAllCandidates();
  	void rowRuleAllRows();

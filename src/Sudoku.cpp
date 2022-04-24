@@ -59,7 +59,7 @@ void Grid::setUpFromFile(string filename) {
 		for (size_t j = 0; j < 9; j++) {
 			int key = i*9+j;
 			gridMap[key] = grid[i][j];
-			vector<int> v; // = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+			vector<int> v;
 			candidates[key] = v;
 			nakedPairs[key] = v;
 		}
@@ -82,89 +82,6 @@ void Grid::printGrid(){
     	}
     	cout<<endl;
     }
-}
-
-void Grid::printEmptyGridSVG(){
-	fstream file;
-	file.open("emptyGrid.svg", ios::out | ios::trunc );
-	if( !file ) {
-		cerr << "Error: file could not be opened" << endl;
-		exit(1);
-	}
-	file << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>" << endl;
-	file << "<svg version=\"1.1\"" << endl;
-	file << "     baseProfile=\"full\"" << endl;
-	file << "     width=\"500\" height=\"500\">" << endl;
-	file << "  <polyline points=\"0,0 450,0 450,450 0,450 0,0\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
-	file << "  <polyline points=\"0,50 450,50\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"0,100 450,100\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"0,150 450,150\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
-	file << "  <polyline points=\"0,200 450,200\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"0,250 450,250\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"0,300 450,300\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
-	file << "  <polyline points=\"0,350 450,350\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"0,400 450,400\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"50,0 50,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"100,0 100,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"150,0 150,450\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
-	file << "  <polyline points=\"200,0 200,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"250,0 250,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"300,0 300,450\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
-	file << "  <polyline points=\"350,0 350,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"400,0 400,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-
-	file << "</svg>" << endl;
-
-	cout << endl << "wrting empty grid sudoku.svg file done." << endl;
-
-	file.close();
-}
-
-void Grid::printGridSVG(string name){
-	fstream file;
-	file.open(name + ".svg", ios::out | ios::trunc );
-	if( !file ) {
-		cerr << "Error: file could not be opened" << endl;
-		exit(1);
-	}
-	file << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>" << endl;
-	file << "<svg version=\"1.1\"" << endl;
-	file << "     baseProfile=\"full\"" << endl;
-	file << "     width=\"500\" height=\"500\">" << endl;
-	file << "  <polyline points=\"0,0 450,0 450,450 0,450 0,0\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
-	file << "  <polyline points=\"0,50 450,50\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"0,100 450,100\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"0,150 450,150\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
-	file << "  <polyline points=\"0,200 450,200\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"0,250 450,250\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"0,300 450,300\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
-	file << "  <polyline points=\"0,350 450,350\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"0,400 450,400\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"50,0 50,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"100,0 100,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"150,0 150,450\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
-	file << "  <polyline points=\"200,0 200,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"250,0 250,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"300,0 300,450\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
-	file << "  <polyline points=\"350,0 350,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-	file << "  <polyline points=\"400,0 400,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
-
-	for (size_t i = 0; i < 9; i++) {
-		for (size_t j = 0; j < 9; j++) {
-			int key = i*9+j;
-			if(gridMap[key] != 0){
-				int x = 50*j + 16;
-				int y = 50*i + 35;
-				file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold\" font-size=\"30px\">" << gridMap[key] << "</text>" << endl;
-			}
-		}
-	}
-
-	file << "</svg>" << endl;
-
-	cout << endl << "wrting " + name + " grid sudoku .svg file done." << endl;
-
-	file.close();
 }
 
 vector<int> Grid::getColumn(int position) {
@@ -255,6 +172,18 @@ int Grid::checkIfInsideCandidates(map<int, vector<int>> m, vector<int> vector, i
 		}
 	}
 	return k;
+}
+
+bool Grid::checkIfSolved() {
+	for (size_t i = 0; i < 9; i++) {
+		for (size_t j = 0; j < 9; j++) {
+			int key = i*9+j;
+			if (gridMap[key] == 0) {
+				return false;
+			}
+		}
+	}
+	return true;
 }
 
 void Grid::findAllCandidates() {
@@ -515,6 +444,89 @@ void Grid::print_mapNakedPairs() {
 	}
 }
 
+void Grid::printEmptyGridSVG(){
+	fstream file;
+	file.open("emptyGrid.svg", ios::out | ios::trunc );
+	if( !file ) {
+		cerr << "Error: file could not be opened" << endl;
+		exit(1);
+	}
+	file << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>" << endl;
+	file << "<svg version=\"1.1\"" << endl;
+	file << "     baseProfile=\"full\"" << endl;
+	file << "     width=\"500\" height=\"500\">" << endl;
+	file << "  <polyline points=\"0,0 450,0 450,450 0,450 0,0\" style=\"fill:white;stroke:black;stroke-width:5\" />" << endl;
+	file << "  <polyline points=\"0,50 450,50\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"0,100 450,100\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"0,150 450,150\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+	file << "  <polyline points=\"0,200 450,200\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"0,250 450,250\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"0,300 450,300\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+	file << "  <polyline points=\"0,350 450,350\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"0,400 450,400\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"50,0 50,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"100,0 100,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"150,0 150,450\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+	file << "  <polyline points=\"200,0 200,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"250,0 250,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"300,0 300,450\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+	file << "  <polyline points=\"350,0 350,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"400,0 400,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+
+	file << "</svg>" << endl;
+
+	cout << endl << "wrting empty grid sudoku.svg file done." << endl;
+
+	file.close();
+}
+
+void Grid::printGridSVG(string name){
+	fstream file;
+	file.open(name + ".svg", ios::out | ios::trunc );
+	if( !file ) {
+		cerr << "Error: file could not be opened" << endl;
+		exit(1);
+	}
+	file << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>" << endl;
+	file << "<svg version=\"1.1\"" << endl;
+	file << "     baseProfile=\"full\"" << endl;
+	file << "     width=\"500\" height=\"500\">" << endl;
+	file << "  <polyline points=\"0,0 450,0 450,450 0,450 0,0\" style=\"fill:white;stroke:black;stroke-width:5\" />" << endl;
+	file << "  <polyline points=\"0,50 450,50\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"0,100 450,100\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"0,150 450,150\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+	file << "  <polyline points=\"0,200 450,200\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"0,250 450,250\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"0,300 450,300\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+	file << "  <polyline points=\"0,350 450,350\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"0,400 450,400\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"50,0 50,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"100,0 100,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"150,0 150,450\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+	file << "  <polyline points=\"200,0 200,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"250,0 250,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"300,0 300,450\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+	file << "  <polyline points=\"350,0 350,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+	file << "  <polyline points=\"400,0 400,450\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
+
+	for (size_t i = 0; i < 9; i++) {
+		for (size_t j = 0; j < 9; j++) {
+			int key = i*9+j;
+			if(gridMap[key] != 0){
+				int x = 50*j + 16;
+				int y = 50*i + 35;
+				file << "<text x=\"" << x << "\" y=\"" << y << "\" style=\"font-wight:bold\" font-size=\"30px\">" << gridMap[key] << "</text>" << endl;
+			}
+		}
+	}
+
+	file << "</svg>" << endl;
+
+	cout << endl << "wrting " + name + " grid sudoku .svg file done." << endl;
+
+	file.close();
+}
+
 void Grid::printSVG_candidates(string name) {
 
  	fstream file;
@@ -528,7 +540,7 @@ void Grid::printSVG_candidates(string name) {
  	file << "<svg version=\"1.1\"" << endl;
  	file << "     baseProfile=\"full\"" << endl;
  	file << "     width=\"500\" height=\"500\">" << endl;
- 	file << "  <polyline points=\"0,0 450,0 450,450 0,450 0,0\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
+	file << "  <polyline points=\"0,0 450,0 450,450 0,450 0,0\" style=\"fill:white;stroke:black;stroke-width:5\" />" << endl;
  	file << "  <polyline points=\"0,50 450,50\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
  	file << "  <polyline points=\"0,100 450,100\" style=\"fill:none;stroke:black;stroke-width:1\" />" << endl;
  	file << "  <polyline points=\"0,150 450,150\" style=\"fill:none;stroke:black;stroke-width:5\" />" << endl;
