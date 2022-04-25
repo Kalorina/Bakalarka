@@ -163,6 +163,18 @@ bool Grid::checkIfInside(vector<int> vector, int value) {
     return false;
 }
 
+bool Grid::checkIfInsideOnce(vector<int> vector, int value) {
+	int count = 0;
+    for (size_t i = 0; i < vector.size(); i++) {
+    	if (vector[i] == value) {
+    		count++;
+    	}
+    }
+
+    if (count == 1){return true;}
+    else {return false;}
+}
+
 int Grid::checkIfInsideCandidates(map<int, vector<int>> m, vector<int> vector, int key) {
 	int k = -1;
 	for (auto itr = m.begin(); itr != m.end(); ++itr) {
@@ -183,7 +195,31 @@ bool Grid::checkIfSolved() {
 			}
 		}
 	}
-	return true;
+	if(checkIfSolvedCorrectly()){
+		return true;
+	}
+	else return false;
+}
+
+bool Grid::checkIfSolvedCorrectly() {
+
+	int count = 0;
+	for (size_t i = 0; i < 9; i++) {
+		for (size_t j = 0; j < 9; j++) {
+			int key = i*9 +j;
+			for (size_t k = 1; k < 10; k++){
+				if (checkIfInsideOnce(getRow(key), k)) {
+					if (checkIfInsideOnce(getColumn(key), k)) {
+						if (checkIfInsideOnce(getBox(key), k)) {
+							count++;
+						}
+					}
+				}
+			}
+		}
+	}
+	if (count == 729) return true;
+	else return false;
 }
 
 void Grid::findAllCandidates() {

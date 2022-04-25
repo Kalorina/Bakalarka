@@ -50,6 +50,10 @@ void Game::runGame() {
 	cout << "Name of your game: ";
 	cin >> name;
 
+	if(!sudoku.checkIfSolved()){
+		cout << "Your Game " + name + " is solved incorrectly, find the mistake and correct it" << endl;
+	}
+
 	cout << "Yours grid:" << endl;
 	sudoku.printGrid();
 	sudoku.printGridSVG(name);
@@ -96,7 +100,7 @@ void Game::runGame() {
 			}
 			int key = (column-1) + 9*(row-1);
 			sudoku.updateGrid(key, number);
-			cout << endl;
+			cout << "Yours grid:" << endl;
 			sudoku.printGrid();
 			sudoku.printGridSVG(name);
 			cout << "Your Game " + name + " was updated with new number in the grid" << endl;
@@ -127,14 +131,20 @@ void Game::runGame() {
 			break;
 		}
 		if(sudoku.checkIfSolved()){
-			cout << "Your Game " + name + " is solved" << endl;
+			cout << "Your Game " + name + " is solved correctly" << endl;
+			cout << "Yours grid:" << endl;
 			sudoku.printGrid();
 			sudoku.printGridSVG(name);
 			break;
 		}
+		else {
+			cout << "Your Game " + name + " is solved incorrectly, find the mistake and correct it" << endl;
+			cout << "Yours grid:" << endl;
+			sudoku.printGrid();
+			sudoku.printGridSVG(name);
+		}
 	}
 	while(!sudoku.checkIfSolved());
-
 
 	cout << "Game ended" << endl;
 }
