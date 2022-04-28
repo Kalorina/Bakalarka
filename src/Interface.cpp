@@ -65,7 +65,8 @@ void Game::runGame() {
 		cout << "3. Show candidates for all column." << endl;
 		cout << "4. Show candidates for all 3x3 box." << endl;
 		cout << "5. Show all candidates." << endl;
-		cout << "6. End game." << endl;
+		cout << "6. Check grid." << endl;
+		cout << "7. End game." << endl;
 
 		cout << "Enter number of your choice: ";
 		cin >> hint;
@@ -125,23 +126,25 @@ void Game::runGame() {
 			sudoku.printSVG_candidates(name);
 			cout << "Your Game " + name + " was updated with all candidates" << endl;
 		}
-		if(hint == 6) {
+		if(hint == 6){
+			if(sudoku.checkIfSolved()){
+				cout << "Your Game " + name + " is solved correctly" << endl;
+				cout << "Yours grid:" << endl;
+				sudoku.printGrid();
+				sudoku.printGridSVG(name);
+				break;
+			}
+			else {
+				cout << "Your Game " + name + " is solved incorrectly, find the mistake and correct it" << endl;
+				cout << "Yours grid:" << endl;
+				sudoku.printGrid();
+				sudoku.printGridSVG(name);
+			}
+		}
+		if(hint == 7) {
 			sudoku.printGridSVG(name);
 			cout << "Your Game " + name + " ended" << endl;
 			break;
-		}
-		if(sudoku.checkIfSolved()){
-			cout << "Your Game " + name + " is solved correctly" << endl;
-			cout << "Yours grid:" << endl;
-			sudoku.printGrid();
-			sudoku.printGridSVG(name);
-			break;
-		}
-		else {
-			cout << "Your Game " + name + " is solved incorrectly, find the mistake and correct it" << endl;
-			cout << "Yours grid:" << endl;
-			sudoku.printGrid();
-			sudoku.printGridSVG(name);
 		}
 	}
 	while(!sudoku.checkIfSolved());
