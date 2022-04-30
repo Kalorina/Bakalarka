@@ -24,6 +24,7 @@ private:
 	map<int, int> gridMap;
 	map<int, vector<int>> candidates; //iteracia cez "1-81" policok po riadkoch, vsetci kandidati
 	map<int, vector<int>> nakedPairs; //dvojice ktore sa najdu v grid, opat pozicia 0-80 po riadkoch
+	map<int, vector<int>> candidatesToRemove;
 
 public:
 	Grid() {};
@@ -46,6 +47,7 @@ public:
  	bool checkIfInside(vector<int> vector, int value);
  	int checkIfInsideCandidates(map<int, vector<int>> m, vector<int> vector, int key);
  	bool checkIfInsideOnce(vector<int> vector, int value);
+ 	bool checkIfInsideNakedPairs(int position, int candidate);
  	bool checkIfSolved();
  	bool checkIfSolvedCorrectly();
 
@@ -64,5 +66,6 @@ public:
  	void print_mapCandidates();
  	void print_mapNakedPairs();
  	void printSVG_candidates(string name);
+ 	void printSVG_nakedPairs(string name);
  	void saveToFile(string filename);
 };

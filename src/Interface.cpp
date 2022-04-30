@@ -68,13 +68,15 @@ void Game::runGame() {
 		cout << "6. Show all candidates." << endl;
 		cout << "7. Add candidate." << endl;
 		cout << "8. Remove candidate." << endl;
-		cout << "9. Check grid." << endl;
-		cout << "10. Save game." << endl;
-		cout << "11. End game." << endl;
+		cout << "9. Show Naked Pair." << endl;
+		cout << "10. Check grid." << endl;
+		cout << "11. Save game." << endl;
+		cout << "12. End game." << endl;
 
 		cout << "Enter number of your choice: ";
 		cin >> hint;
-		if (hint <= 0 || hint > 12){
+
+		if (hint <= 0 || hint > 13){
 			cout << "wrong number, please enter again: " << endl;
 			cin >> hint;
 		}
@@ -212,7 +214,14 @@ void Game::runGame() {
 			sudoku.printSVG_candidates(name);
 			cout << "Your Game " + name + " was updated without the number between the candidates" << endl;
 		}
-		if(hint == 9){
+		if(hint == 9) {
+			sudoku.findAllCandidates();
+			sudoku.findAllNakedPairs();
+			//sudoku.print_mapNakedPairs();
+			sudoku.printSVG_nakedPairs(name);
+			cout << "Your Game " + name + " was updated with naked Pair" << endl;
+		}
+		if(hint == 10){
 			if(sudoku.checkIfSolved()){
 				cout << "Your Game " + name + " is solved correctly" << endl;
 				cout << "Yours grid:" << endl;
@@ -227,12 +236,12 @@ void Game::runGame() {
 				sudoku.printGridSVG(name);
 			}
 		}
-		if(hint == 10) {
+		if(hint == 11) {
 			sudoku.printGridSVG(name);
 			sudoku.saveToFile(name);
 			cout << "Your Game " + name + " is save to .csv file" << endl;
 		}
-		if(hint == 11) {
+		if(hint == 12) {
 			sudoku.printGridSVG(name);
 			cout << "Your Game " + name + " ended" << endl;
 			break;
