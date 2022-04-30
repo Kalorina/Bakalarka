@@ -1,0 +1,1280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="500"
+   height="500"
+   id="svg428"
+   sodipodi:docname="Sudoku02candidates.svg"
+   inkscape:version="1.1.2 (1:1.1+202202050950+0a00cf5339)"
+   inkscape:export-filename="/home/karoli/Documents/Bakalarka/Bakalarka/Bakalarka/Sudoku02candidates.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs432" />
+  <sodipodi:namedview
+     id="namedview430"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="1.688"
+     inkscape:cx="249.70379"
+     inkscape:cy="250"
+     inkscape:window-width="2488"
+     inkscape:window-height="1403"
+     inkscape:window-x="1992"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg428" />
+  <polyline
+     points="0,0 450,0 450,450 0,450 0,0"
+     style="fill:white;stroke:black;stroke-width:5"
+     id="polyline2" />
+  <polyline
+     points="0,50 450,50"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="polyline4" />
+  <polyline
+     points="0,100 450,100"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="polyline6" />
+  <polyline
+     points="0,150 450,150"
+     style="fill:none;stroke:black;stroke-width:5"
+     id="polyline8" />
+  <polyline
+     points="0,200 450,200"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="polyline10" />
+  <polyline
+     points="0,250 450,250"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="polyline12" />
+  <polyline
+     points="0,300 450,300"
+     style="fill:none;stroke:black;stroke-width:5"
+     id="polyline14" />
+  <polyline
+     points="0,350 450,350"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="polyline16" />
+  <polyline
+     points="0,400 450,400"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="polyline18" />
+  <polyline
+     points="50,0 50,450"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="polyline20" />
+  <polyline
+     points="100,0 100,450"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="polyline22" />
+  <polyline
+     points="150,0 150,450"
+     style="fill:none;stroke:black;stroke-width:5"
+     id="polyline24" />
+  <polyline
+     points="200,0 200,450"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="polyline26" />
+  <polyline
+     points="250,0 250,450"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="polyline28" />
+  <polyline
+     points="300,0 300,450"
+     style="fill:none;stroke:black;stroke-width:5"
+     id="polyline30" />
+  <polyline
+     points="350,0 350,450"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="polyline32" />
+  <polyline
+     points="400,0 400,450"
+     style="fill:none;stroke:black;stroke-width:1"
+     id="polyline34" />
+  <text
+     x="8"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text36">2</text>
+  <text
+     x="20"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text38">7</text>
+  <text
+     x="32"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text40">8</text>
+  <text
+     x="66"
+     y="35"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text42">5</text>
+  <text
+     x="116"
+     y="35"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text44">6</text>
+  <text
+     x="158"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text46">2</text>
+  <text
+     x="170"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text48">4</text>
+  <text
+     x="182"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text50">7</text>
+  <text
+     x="158"
+     y="33"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text52">9</text>
+  <text
+     x="216"
+     y="35"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text54">1</text>
+  <text
+     x="258"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text56">4</text>
+  <text
+     x="270"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text58">9</text>
+  <text
+     x="316"
+     y="35"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text60">3</text>
+  <text
+     x="358"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text62">2</text>
+  <text
+     x="370"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text64">7</text>
+  <text
+     x="382"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text66">8</text>
+  <text
+     x="408"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text68">2</text>
+  <text
+     x="420"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text70">7</text>
+  <text
+     x="432"
+     y="20"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text72">8</text>
+  <text
+     x="408"
+     y="33"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text74">9</text>
+  <text
+     x="8"
+     y="70"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text76">2</text>
+  <text
+     x="20"
+     y="70"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text78">3</text>
+  <text
+     x="32"
+     y="70"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text80">7</text>
+  <text
+     x="66"
+     y="85"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text82">4</text>
+  <text
+     x="108"
+     y="70"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text84">2</text>
+  <text
+     x="120"
+     y="70"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text86">3</text>
+  <text
+     x="132"
+     y="70"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text88">7</text>
+  <text
+     x="158"
+     y="70"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text90">2</text>
+  <text
+     x="170"
+     y="70"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text92">3</text>
+  <text
+     x="182"
+     y="70"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text94">7</text>
+  <text
+     x="158"
+     y="83"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text96">9</text>
+  <text
+     x="216"
+     y="85"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text98">5</text>
+  <text
+     x="266"
+     y="85"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text100">8</text>
+  <text
+     x="316"
+     y="85"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text102">6</text>
+  <text
+     x="366"
+     y="85"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text104">1</text>
+  <text
+     x="408"
+     y="70"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text106">2</text>
+  <text
+     x="420"
+     y="70"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text108">7</text>
+  <text
+     x="432"
+     y="70"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text110">9</text>
+  <text
+     x="8"
+     y="120"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text112">1</text>
+  <text
+     x="20"
+     y="120"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text114">2</text>
+  <text
+     x="32"
+     y="120"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text116">3</text>
+  <text
+     x="8"
+     y="133"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text118">7</text>
+  <text
+     x="20"
+     y="133"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text120">8</text>
+  <text
+     x="66"
+     y="135"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text122">9</text>
+  <text
+     x="108"
+     y="120"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text124">1</text>
+  <text
+     x="120"
+     y="120"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text126">2</text>
+  <text
+     x="132"
+     y="120"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text128">3</text>
+  <text
+     x="108"
+     y="133"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text130">7</text>
+  <text
+     x="120"
+     y="133"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text132">8</text>
+  <text
+     x="166"
+     y="135"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text134">6</text>
+  <text
+     x="208"
+     y="120"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text136">3</text>
+  <text
+     x="220"
+     y="120"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text138">7</text>
+  <text
+     x="258"
+     y="120"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text140">3</text>
+  <text
+     x="308"
+     y="120"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text142">2</text>
+  <text
+     x="320"
+     y="120"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text144">7</text>
+  <text
+     x="332"
+     y="120"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text146">8</text>
+  <text
+     x="366"
+     y="135"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text148">5</text>
+  <text
+     x="416"
+     y="135"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text150">4</text>
+  <text
+     x="8"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text152">1</text>
+  <text
+     x="20"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text154">3</text>
+  <text
+     x="32"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text156">5</text>
+  <text
+     x="8"
+     y="183"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text158">7</text>
+  <text
+     x="20"
+     y="183"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text160">8</text>
+  <text
+     x="66"
+     y="185"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text162">2</text>
+  <text
+     x="108"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text164">1</text>
+  <text
+     x="120"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text166">3</text>
+  <text
+     x="132"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text168">7</text>
+  <text
+     x="108"
+     y="183"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text170">8</text>
+  <text
+     x="158"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text172">1</text>
+  <text
+     x="170"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text174">3</text>
+  <text
+     x="182"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text176">4</text>
+  <text
+     x="158"
+     y="183"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text178">7</text>
+  <text
+     x="170"
+     y="183"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text180">8</text>
+  <text
+     x="216"
+     y="185"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text182">9</text>
+  <text
+     x="266"
+     y="185"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text184">6</text>
+  <text
+     x="308"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text186">1</text>
+  <text
+     x="320"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text188">4</text>
+  <text
+     x="332"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text190">7</text>
+  <text
+     x="308"
+     y="183"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text192">8</text>
+  <text
+     x="358"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text194">3</text>
+  <text
+     x="370"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text196">4</text>
+  <text
+     x="382"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text198">7</text>
+  <text
+     x="358"
+     y="183"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text200">8</text>
+  <text
+     x="408"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text202">1</text>
+  <text
+     x="420"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text204">3</text>
+  <text
+     x="432"
+     y="170"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text206">7</text>
+  <text
+     x="408"
+     y="183"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text208">8</text>
+  <text
+     x="16"
+     y="235"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text210">4</text>
+  <text
+     x="58"
+     y="220"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text212">3</text>
+  <text
+     x="70"
+     y="220"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text214">7</text>
+  <text
+     x="116"
+     y="235"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text216">9</text>
+  <text
+     x="158"
+     y="220"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text218">1</text>
+  <text
+     x="170"
+     y="220"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text220">3</text>
+  <text
+     x="182"
+     y="220"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text222">7</text>
+  <text
+     x="158"
+     y="233"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text224">8</text>
+  <text
+     x="208"
+     y="220"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text226">3</text>
+  <text
+     x="220"
+     y="220"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text228">7</text>
+  <text
+     x="232"
+     y="220"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text230">8</text>
+  <text
+     x="266"
+     y="235"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text232">2</text>
+  <text
+     x="316"
+     y="235"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text234">5</text>
+  <text
+     x="358"
+     y="220"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text236">3</text>
+  <text
+     x="370"
+     y="220"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text238">7</text>
+  <text
+     x="382"
+     y="220"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text240">8</text>
+  <text
+     x="416"
+     y="235"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text242">6</text>
+  <text
+     x="8"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text244">1</text>
+  <text
+     x="20"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text246">3</text>
+  <text
+     x="32"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text248">5</text>
+  <text
+     x="8"
+     y="283"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text250">7</text>
+  <text
+     x="20"
+     y="283"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text252">8</text>
+  <text
+     x="66"
+     y="285"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text254">6</text>
+  <text
+     x="108"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text256">1</text>
+  <text
+     x="120"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text258">3</text>
+  <text
+     x="132"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text260">7</text>
+  <text
+     x="108"
+     y="283"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text262">8</text>
+  <text
+     x="158"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text264">1</text>
+  <text
+     x="170"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text266">3</text>
+  <text
+     x="182"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text268">4</text>
+  <text
+     x="158"
+     y="283"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text270">7</text>
+  <text
+     x="170"
+     y="283"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text272">8</text>
+  <text
+     x="208"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text274">3</text>
+  <text
+     x="220"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text276">4</text>
+  <text
+     x="232"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text278">7</text>
+  <text
+     x="208"
+     y="283"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text280">8</text>
+  <text
+     x="258"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text282">1</text>
+  <text
+     x="270"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text284">3</text>
+  <text
+     x="282"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text286">4</text>
+  <text
+     x="258"
+     y="283"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text288">5</text>
+  <text
+     x="316"
+     y="285"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text290">9</text>
+  <text
+     x="358"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text292">2</text>
+  <text
+     x="370"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text294">3</text>
+  <text
+     x="382"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text296">4</text>
+  <text
+     x="358"
+     y="283"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text298">7</text>
+  <text
+     x="370"
+     y="283"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text300">8</text>
+  <text
+     x="408"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text302">1</text>
+  <text
+     x="420"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text304">2</text>
+  <text
+     x="432"
+     y="270"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text306">3</text>
+  <text
+     x="408"
+     y="283"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text308">7</text>
+  <text
+     x="420"
+     y="283"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text310">8</text>
+  <text
+     x="8"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text312">2</text>
+  <text
+     x="20"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text314">3</text>
+  <text
+     x="32"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text316">7</text>
+  <text
+     x="58"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text318">3</text>
+  <text
+     x="70"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text320">7</text>
+  <text
+     x="116"
+     y="335"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text322">5</text>
+  <text
+     x="158"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text324">1</text>
+  <text
+     x="170"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text326">3</text>
+  <text
+     x="182"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text328">4</text>
+  <text
+     x="158"
+     y="333"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text330">8</text>
+  <text
+     x="170"
+     y="333"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text332">9</text>
+  <text
+     x="216"
+     y="335"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text334">6</text>
+  <text
+     x="258"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text336">1</text>
+  <text
+     x="270"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text338">3</text>
+  <text
+     x="282"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text340">4</text>
+  <text
+     x="258"
+     y="333"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text342">9</text>
+  <text
+     x="308"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text344">1</text>
+  <text
+     x="320"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text346">2</text>
+  <text
+     x="332"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text348">4</text>
+  <text
+     x="308"
+     y="333"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text350">7</text>
+  <text
+     x="320"
+     y="333"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text352">8</text>
+  <text
+     x="358"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text354">2</text>
+  <text
+     x="370"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text356">3</text>
+  <text
+     x="382"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text358">4</text>
+  <text
+     x="358"
+     y="333"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text360">7</text>
+  <text
+     x="370"
+     y="333"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text362">8</text>
+  <text
+     x="408"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text364">1</text>
+  <text
+     x="420"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text366">2</text>
+  <text
+     x="432"
+     y="320"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text368">3</text>
+  <text
+     x="408"
+     y="333"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text370">7</text>
+  <text
+     x="420"
+     y="333"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text372">8</text>
+  <text
+     x="16"
+     y="385"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text374">6</text>
+  <text
+     x="66"
+     y="385"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text376">1</text>
+  <text
+     x="108"
+     y="370"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text378">3</text>
+  <text
+     x="120"
+     y="370"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text380">7</text>
+  <text
+     x="158"
+     y="370"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text382">3</text>
+  <text
+     x="170"
+     y="370"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text384">4</text>
+  <text
+     x="182"
+     y="370"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text386">8</text>
+  <text
+     x="216"
+     y="385"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text388">2</text>
+  <text
+     x="258"
+     y="370"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text390">3</text>
+  <text
+     x="270"
+     y="370"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text392">4</text>
+  <text
+     x="308"
+     y="370"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text394">4</text>
+  <text
+     x="320"
+     y="370"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text396">7</text>
+  <text
+     x="332"
+     y="370"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text398">8</text>
+  <text
+     x="366"
+     y="385"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text400">9</text>
+  <text
+     x="416"
+     y="385"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text402">5</text>
+  <text
+     x="16"
+     y="435"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text404">9</text>
+  <text
+     x="66"
+     y="435"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text406">8</text>
+  <text
+     x="116"
+     y="435"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text408">4</text>
+  <text
+     x="166"
+     y="435"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text410">5</text>
+  <text
+     x="208"
+     y="420"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text412">3</text>
+  <text
+     x="266"
+     y="435"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text414">7</text>
+  <text
+     x="308"
+     y="420"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text416">1</text>
+  <text
+     x="320"
+     y="420"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text418">2</text>
+  <text
+     x="366"
+     y="435"
+     style="font-wight:bold"
+     font-size="30px"
+     id="text420">6</text>
+  <text
+     x="408"
+     y="420"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text422">1</text>
+  <text
+     x="420"
+     y="420"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text424">2</text>
+  <text
+     x="432"
+     y="420"
+     style="font-wight:bold; fill:black"
+     font-size="15px"
+     id="text426">3</text>
+</svg>

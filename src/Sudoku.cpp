@@ -180,7 +180,7 @@ int Grid::checkIfInsideCandidates(map<int, vector<int>> m, vector<int> vector, i
 	for (auto itr = m.begin(); itr != m.end(); ++itr) {
 		if (itr->first != key && vector == itr->second){
 			k = itr->first;
-			return k;
+			return k; //vrati match key
 		}
 	}
 	return k;
@@ -247,6 +247,28 @@ void Grid::findAllCandidates() {
 	}
 	cout << "Found all candicates" << endl;
 
+}
+
+void Grid::addCandidate(int position, int candidate){
+	vector<int> c;
+	c = candidates[position];
+	if(!checkIfInside(c, candidate)){
+		c.push_back(candidate);
+	}
+	candidates[position] = c;
+}
+
+void Grid::removeCandidate(int position, int candidate){
+	vector<int> cold, cnew;
+	cold = candidates[position];
+	if(cold.size() != 0){
+		for(size_t i = 0; i < cold.size(); i++){
+			if(cold[i] != candidate){
+				cnew.push_back(cold[i]);
+			}
+		}
+	}
+	candidates[position] = cnew;
 }
 
 void Grid::rowRuleAllRows() {
@@ -619,6 +641,27 @@ void Grid::printSVG_candidates(string name) {
 
  	file << "</svg>" << endl;
 
- 	cout << endl << "wrting candidates .svg file done." << endl;
+ 	cout << endl << "wrting candidates to .svg file done." << endl;
+ 	file.close();
+}
+
+void Grid::saveToFile(string filename) {
+
+ 	fstream file;
+
+ 	file.open(filename + ".csv", ios::out | ios::trunc );
+ 	if( !file ) {
+ 		cerr << "Error: file could not be opened" << endl;
+ 		exit(1);
+ 	}
+
+ 	for (size_t i = 0; i < 9; i++) {
+ 		for (size_t j = 0; j < 9; j++) {
+ 			int key = i*9+j;
+ 			file << gridMap[key] << ",";
+ 		}
+ 		file << endl;
+ 	}
+ 	cout << endl << "saving grid to .csv file done." << endl;
  	file.close();
 }

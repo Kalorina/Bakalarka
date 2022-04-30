@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg version="1.1"
+     baseProfile="full"
+     width="500" height="500">
+  <polyline points="0,0 450,0 450,450 0,450 0,0" style="fill:white;stroke:black;stroke-width:5" />
+  <polyline points="0,50 450,50" style="fill:none;stroke:black;stroke-width:1" />
+  <polyline points="0,100 450,100" style="fill:none;stroke:black;stroke-width:1" />
+  <polyline points="0,150 450,150" style="fill:none;stroke:black;stroke-width:5" />
+  <polyline points="0,200 450,200" style="fill:none;stroke:black;stroke-width:1" />
+  <polyline points="0,250 450,250" style="fill:none;stroke:black;stroke-width:1" />
+  <polyline points="0,300 450,300" style="fill:none;stroke:black;stroke-width:5" />
+  <polyline points="0,350 450,350" style="fill:none;stroke:black;stroke-width:1" />
+  <polyline points="0,400 450,400" style="fill:none;stroke:black;stroke-width:1" />
+  <polyline points="50,0 50,450" style="fill:none;stroke:black;stroke-width:1" />
+  <polyline points="100,0 100,450" style="fill:none;stroke:black;stroke-width:1" />
+  <polyline points="150,0 150,450" style="fill:none;stroke:black;stroke-width:5" />
+  <polyline points="200,0 200,450" style="fill:none;stroke:black;stroke-width:1" />
+  <polyline points="250,0 250,450" style="fill:none;stroke:black;stroke-width:1" />
+  <polyline points="300,0 300,450" style="fill:none;stroke:black;stroke-width:5" />
+  <polyline points="350,0 350,450" style="fill:none;stroke:black;stroke-width:1" />
+  <polyline points="400,0 400,450" style="fill:none;stroke:black;stroke-width:1" />
+<text x="16" y="35" style="font-wight:bold" font-size="30px">9</text>
+<text x="66" y="35" style="font-wight:bold" font-size="30px">3</text>
+<text x="116" y="35" style="font-wight:bold" font-size="30px">4</text>
+<text x="158" y="20" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="170" y="20" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="182" y="20" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="158" y="33" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="216" y="35" style="font-wight:bold" font-size="30px">6</text>
+<text x="258" y="20" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="270" y="20" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="282" y="20" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="308" y="20" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="320" y="20" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="332" y="20" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="366" y="35" style="font-wight:bold" font-size="30px">5</text>
+<text x="408" y="20" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="420" y="20" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="8" y="70" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="20" y="70" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="58" y="70" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="70" y="70" style="font-wight:bold; fill:black" font-size="15px">5</text>
+<text x="116" y="85" style="font-wight:bold" font-size="30px">6</text>
+<text x="158" y="70" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="170" y="70" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="182" y="70" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="208" y="70" style="font-wight:bold; fill:black" font-size="15px">5</text>
+<text x="220" y="70" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="232" y="70" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="266" y="85" style="font-wight:bold" font-size="30px">4</text>
+<text x="316" y="85" style="font-wight:bold" font-size="30px">9</text>
+<text x="366" y="85" style="font-wight:bold" font-size="30px">2</text>
+<text x="416" y="85" style="font-wight:bold" font-size="30px">3</text>
+<text x="8" y="120" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="20" y="120" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="32" y="120" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="58" y="120" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="70" y="120" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="82" y="120" style="font-wight:bold; fill:black" font-size="15px">5</text>
+<text x="116" y="135" style="font-wight:bold" font-size="30px">8</text>
+<text x="166" y="135" style="font-wight:bold" font-size="30px">9</text>
+<text x="208" y="120" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="220" y="120" style="font-wight:bold; fill:black" font-size="15px">3</text>
+<text x="232" y="120" style="font-wight:bold; fill:black" font-size="15px">5</text>
+<text x="208" y="133" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="258" y="120" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="270" y="120" style="font-wight:bold; fill:black" font-size="15px">3</text>
+<text x="282" y="120" style="font-wight:bold; fill:black" font-size="15px">5</text>
+<text x="258" y="133" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="308" y="120" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="320" y="120" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="366" y="135" style="font-wight:bold" font-size="30px">4</text>
+<text x="416" y="135" style="font-wight:bold" font-size="30px">6</text>
+<text x="16" y="185" style="font-wight:bold" font-size="30px">8</text>
+<text x="58" y="170" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="70" y="170" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="82" y="170" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="108" y="170" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="120" y="170" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="132" y="170" style="font-wight:bold; fill:black" font-size="15px">3</text>
+<text x="108" y="183" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="166" y="185" style="font-wight:bold" font-size="30px">5</text>
+<text x="216" y="185" style="font-wight:bold" font-size="30px">4</text>
+<text x="266" y="185" style="font-wight:bold" font-size="30px">6</text>
+<text x="308" y="170" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="320" y="170" style="font-wight:bold; fill:black" font-size="15px">3</text>
+<text x="358" y="170" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="370" y="170" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="416" y="185" style="font-wight:bold" font-size="30px">7</text>
+<text x="16" y="235" style="font-wight:bold" font-size="30px">6</text>
+<text x="58" y="220" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="70" y="220" style="font-wight:bold; fill:black" font-size="15px">4</text>
+<text x="82" y="220" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="108" y="220" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="120" y="220" style="font-wight:bold; fill:black" font-size="15px">3</text>
+<text x="132" y="220" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="108" y="233" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="158" y="220" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="170" y="220" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="182" y="220" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="216" y="235" style="font-wight:bold" font-size="30px">1</text>
+<text x="258" y="220" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="270" y="220" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="282" y="220" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="308" y="220" style="font-wight:bold; fill:black" font-size="15px">3</text>
+<text x="320" y="220" style="font-wight:bold; fill:black" font-size="15px">4</text>
+<text x="332" y="220" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="358" y="220" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="370" y="220" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="416" y="235" style="font-wight:bold" font-size="30px">5</text>
+<text x="16" y="285" style="font-wight:bold" font-size="30px">5</text>
+<text x="58" y="270" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="70" y="270" style="font-wight:bold; fill:black" font-size="15px">4</text>
+<text x="108" y="270" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="120" y="270" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="166" y="285" style="font-wight:bold" font-size="30px">3</text>
+<text x="216" y="285" style="font-wight:bold" font-size="30px">9</text>
+<text x="258" y="270" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="270" y="270" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="308" y="270" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="320" y="270" style="font-wight:bold; fill:black" font-size="15px">4</text>
+<text x="332" y="270" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="366" y="285" style="font-wight:bold" font-size="30px">6</text>
+<text x="416" y="285" style="font-wight:bold" font-size="30px">2</text>
+<text x="16" y="335" style="font-wight:bold" font-size="30px">3</text>
+<text x="66" y="335" style="font-wight:bold" font-size="30px">6</text>
+<text x="108" y="320" style="font-wight:bold; fill:black" font-size="15px">5</text>
+<text x="120" y="320" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="166" y="335" style="font-wight:bold" font-size="30px">4</text>
+<text x="208" y="320" style="font-wight:bold; fill:black" font-size="15px">5</text>
+<text x="220" y="320" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="266" y="335" style="font-wight:bold" font-size="30px">1</text>
+<text x="316" y="335" style="font-wight:bold" font-size="30px">2</text>
+<text x="366" y="335" style="font-wight:bold" font-size="30px">7</text>
+<text x="408" y="320" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="420" y="320" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="16" y="385" style="font-wight:bold" font-size="30px">4</text>
+<text x="66" y="385" style="font-wight:bold" font-size="30px">7</text>
+<text x="108" y="370" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="120" y="370" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="132" y="370" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="166" y="385" style="font-wight:bold" font-size="30px">6</text>
+<text x="208" y="370" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="220" y="370" style="font-wight:bold; fill:black" font-size="15px">3</text>
+<text x="232" y="370" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="258" y="370" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="270" y="370" style="font-wight:bold; fill:black" font-size="15px">3</text>
+<text x="282" y="370" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="258" y="383" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="316" y="385" style="font-wight:bold" font-size="30px">5</text>
+<text x="358" y="370" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="370" y="370" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="382" y="370" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="408" y="370" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="420" y="370" style="font-wight:bold; fill:black" font-size="15px">8</text>
+<text x="432" y="370" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="8" y="420" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="20" y="420" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="66" y="435" style="font-wight:bold" font-size="30px">8</text>
+<text x="108" y="420" style="font-wight:bold; fill:black" font-size="15px">1</text>
+<text x="120" y="420" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="132" y="420" style="font-wight:bold; fill:black" font-size="15px">5</text>
+<text x="108" y="433" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="158" y="420" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="170" y="420" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="208" y="420" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="220" y="420" style="font-wight:bold; fill:black" font-size="15px">5</text>
+<text x="232" y="420" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="258" y="420" style="font-wight:bold; fill:black" font-size="15px">2</text>
+<text x="270" y="420" style="font-wight:bold; fill:black" font-size="15px">5</text>
+<text x="282" y="420" style="font-wight:bold; fill:black" font-size="15px">7</text>
+<text x="258" y="433" style="font-wight:bold; fill:black" font-size="15px">9</text>
+<text x="316" y="435" style="font-wight:bold" font-size="30px">6</text>
+<text x="366" y="435" style="font-wight:bold" font-size="30px">3</text>
+<text x="416" y="435" style="font-wight:bold" font-size="30px">4</text>
+</svg>

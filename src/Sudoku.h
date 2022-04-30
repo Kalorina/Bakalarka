@@ -50,6 +50,8 @@ public:
  	bool checkIfSolvedCorrectly();
 
  	void findAllCandidates();
+ 	void addCandidate(int posititon, int candidate);
+ 	void removeCandidate(int position, int candidate);
  	void rowRuleAllRows();
  	void columnRuleAllColumns();
  	void boxRuleAllBoxes();
@@ -62,4 +64,5 @@ public:
  	void print_mapCandidates();
  	void print_mapNakedPairs();
  	void printSVG_candidates(string name);
+ 	void saveToFile(string filename);
 };
