@@ -63,8 +63,8 @@ void Game::runGame() {
 		cout << "1. Add a number to grid." << endl;
 		cout << "2. Remove a number from grid" << endl;
 		cout << "3. Show candidates for all rows." << endl;
-		cout << "4. Show candidates for all column." << endl;
-		cout << "5. Show candidates for all 3x3 box." << endl;
+		cout << "4. Show candidates for all columns." << endl;
+		cout << "5. Show candidates for all 3x3 boxes." << endl;
 		cout << "6. Show all candidates." << endl;
 		cout << "7. Add candidate." << endl;
 		cout << "8. Remove candidate." << endl;
